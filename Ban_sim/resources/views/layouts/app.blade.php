@@ -15,14 +15,15 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <script src='https://www.google.com/recaptcha/api.js'></script>
     @include('BanSim.catalog.partials.head')
 </head>
 <body>
-
-
 <div id="app">
     @include('BanSim.catalog.partials.header')
     <main class="py-4">

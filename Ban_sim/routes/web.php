@@ -41,7 +41,7 @@ Route::group(['prefix' => ''], function () {
     Route::get('/cart','ShopController@cart')->name('cart')->middleware('auth');
     Route::get('/product','ShopController@product')->name('product');
     Route::get('/checkout','CheckoutController@show')->name('checkout')->middleware('auth');
-    Route::post('/checkout/save','CheckoutController@checkout_save')->name('checkout.save');
+    Route::post('/shop','CheckoutController@checkout_save')->name('checkout.save');
 
     Route::get('/contact','ShopController@contact')->name('contact')->middleware('auth');
     Route::resource('sim', 'SimController')->middleware('admin');
@@ -60,6 +60,16 @@ Route::get('/search/{id}','SearchController@search_name')->name('search.name');
 Route::post('/search/sim-price','SearchController@search_price')->name('search.price');
 
 Route::get('/dashboard','DashboardController@index')->name('dashboard');
+Route::get('/dashboard/table','DashboardController@table')->name('dashboard.table');
+Route::get('/dashboard/table2','DashboardController@table2')->name('dashboard.table2');
+Route::get('/dashboard/table3','DashboardController@table3')->name('dashboard.table3');
+Route::get('/dashboard/table3/edit{id}','DashboardController@table3Edit')->name('dashboard.table3Edit');
+Route::post('/dashboard/table3/update','DashboardController@table3Update')->name('dashboard.table3Update');
+
+
+
+Route::get('/dashboard/table/{id}','OrderController@destroy')->name('dashboard.destroy.order');
+Route::get('/dashboard/table/{id}','HomeController@destroy')->name('dashboard.destroy.user');
 
 
 

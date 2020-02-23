@@ -39,6 +39,8 @@ class CheckoutController extends Controller
             $order->order_image = $image;
         }
         $order->save();
+        $rowId = \request('rowId');
+        Cart::update($rowId,0);
         $sims = Sim::paginate(6);
 //        $cart = \request('rowId');
         Session::flash('success', '成功した購入');

@@ -26,10 +26,10 @@ class SimController extends Controller
 
     public function index()
     {
-//        $sims = $this->sim::paginate(5);
-//        $categories = Category::all();
-//        return view('BanSim.crud.list', compact('sims', 'categories'));
-        return view('BanSim.crud.list', ['sims' => $this->sim::paginate(5), 'categories' => $this->category::all()]);
+        $sims = $this->sim::whereNull('deleted_at')->paginate(5);
+        $categories = Category::all();
+        return view('BanSim.crud.list', compact('sims', 'categories'));
+//        return view('BanSim.crud.list', ['sims' => $this->sim::paginate(5), 'categories' => $this->category::all()]);
     }
 
     /**
@@ -122,9 +122,9 @@ class SimController extends Controller
     public function destroy(Sim $sim)
     {
         $sim = Sim::findOrFail($sim->sim_id);
-        $sim->delete();
-        Session::flash('success', 'Xóa khách hàng thành công');
-        return redirect()->route('sim.index');
+        $sim->update(['deleted_at' => date("Y-m-d H:i:s")]);
+        Session::flash('success', '削除成功');
+        return redirect()->back();
     }
 
     public function validateTask()

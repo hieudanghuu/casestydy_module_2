@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Product;
 
-use App\Order;
+use App\Http\Controllers\Controller;
+use App\Sim;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Session;
+use App\Model\Product;
 
-class OrderController extends Controller
+class ProductController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +16,8 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+        $sims = Sim::all();
+        return  $sims;
     }
 
     /**
@@ -25,7 +27,7 @@ class OrderController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.pages.form.createProductLine');
     }
 
     /**
@@ -36,27 +38,29 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $atribute = $request->all();
+        $sims = Sim::create($atribute);
+        return $sims;
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified resourceS.
      *
-     * @param  \App\Order  $order
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Order $order)
+    public function show($id)
     {
-        //
+        return Sim::find($id);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Order  $order
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Order $order)
+    public function edit($id)
     {
         //
     }
@@ -65,25 +69,26 @@ class OrderController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Order  $order
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Order $order)
+    public function update(Request $request, $id)
     {
-        //
+        $sims = Sim::findOrFail($id);
+        $sims->update($request->all());
+        return $sims;
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Order  $order
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Order $order)
+    public function destroy(Request $request, $id)
     {
-        $order = Order::findOrFail($order->order_id);
-        $order->delete();
-        Session::flash('success', '削除成功');
-        return redirect()->back();
+        $sims = Sim::findOrFail($id);
+        $sims->delete();
+        return 204;
     }
 }

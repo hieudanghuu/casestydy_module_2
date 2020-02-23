@@ -12,7 +12,7 @@
                 <div class="col-xl-10 ftco-animate">
 
                     @if (Cart::content() === [])
-                        <h1> không có</h1>
+                        <h1>データがありません</h1>
                     @else
                         <form action="{{ route("checkout.save") }}" class="billing-form" method="post"
                               enctype="multipart/form-data">
@@ -25,6 +25,14 @@
                                         <input type="text" class="form-control" name="name"
                                                value="{{Auth::user()->name}}">
                                         <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="country">住所</label>
+                                        <img src="{{asset('minishop/images/avatar.png')}}" alt="image"
+                                             style="max-width: 150px">
+                                        <input type="file" class="form-control" name="image">
                                     </div>
                                 </div>
                                 <div class="col-md-12">
@@ -53,8 +61,6 @@
                                                 @foreach($cart->options as $image)
                                                     <img src="{{ 'data:image/jpeg;base64,'. $image }}" alt="image"
                                                          style="max-width: 150px">
-                                                    <input id="image" type="hidden" class="form-control" name="image"
-                                                           value="{{$image}}">
                                                     @error('image')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
@@ -68,8 +74,6 @@
                                                 <label for="streetaddress">製品名</label>
                                                 <input type="text" class="form-control"
                                                        placeholder="" value="{{$cart->name}}" name="product_name">
-                                                <input type="hidden" name="rowId" class="form-control"
-                                                       value="{{$cart->rowId}}">
                                             </div>
                                         </div>
                                         <div class="col-md-2">
@@ -84,6 +88,10 @@
                                                 <label for="streetaddress">価格</label>
                                                 <input type="number" class="form-control"
                                                        placeholder="" value="{{ $cart->price }}" name="price">
+                                                <input type="hidden"
+                                                        value="{{ $cart->id }}" name="id">
+                                                <input type="hidden"
+                                                        value="{{ $cart->rowId }}" name="rowId">
                                             </div>
                                         </div>
                                         <div class="w-100"></div>
