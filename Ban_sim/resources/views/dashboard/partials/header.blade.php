@@ -16,29 +16,36 @@
     <nav class="navbar-mobile">
         <div class="container-fluid">
             <ul class="navbar-mobile__list list-unstyled">
-                <li class="has-sub">
-                    <a class="js-arrow" href="{{route('dashboard')}}">
+                <li >
+                    <a  href="{{route('dashboard')}}">
                         <i class="fas fa-tachometer-alt"></i>
                         制御盤</a>
                 </li>
                 <li>
-                    <a href="#">
-                        <i class="fas fa-table"></i>ボード</a>
-                </li>
-                <li>
-                    <a href="calendar.html">
+                    <a href="{{route('dashboard.table')}}">
                         <i class="fas fa-calendar-alt"></i>
-                        カレンダー</a>
+
+                        製品リスト</a>
                 </li>
                 <li>
-                    <a href="map.html">
-                        <i class="fas fa-map-marker-alt"></i>製品管理</a>
+                    <a href="{{route('dashboard.table2')}}">
+                        <i class="fas fa-calendar-alt"></i>
+                        顧客リスト</a>
+                </li>
+                <li>
+                    <a href="{{route('dashboard.table3')}}">
+                        <i class="fas fa-map-marker-alt"></i>請求書リスト</a>
+                </li>
+
+                <li>
+                    <a href="{{route('dashboard.table4')}}">
+                        <i class="fas fa-map-marker-alt"></i>ニュースリスト</a>
                 </li>
                 <li class="has-sub">
                     <a class="js-arrow" href="#">
                         <i class="fas fa-copy"></i>
                         ページ</a>
-                    <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+                    <ul class="list-unstyled navbar__sub-list js-sub-list">
                         <li>
                             <a href="{{route('login')}}">
                                 ログイン</a>
@@ -47,45 +54,7 @@
                             <a href="{{ route('register') }}">
                                 アカウントを作成する</a>
                         </li>
-                    </ul>
 
-                    <ul class="list-unstyled navbar__list">
-                        <li >
-                            <a  href="{{route('dashboard')}}">
-                                <i class="fas fa-tachometer-alt"></i>
-                                制御盤</a>
-                        </li>
-                        <li>
-                            <a href="{{route('dashboard.table')}}">
-                                <i class="fas fa-calendar-alt"></i>
-
-                                製品リスト</a>
-                        </li>
-                        <li>
-                            <a href="{{route('dashboard.table2')}}">
-                                <i class="fas fa-calendar-alt"></i>
-                                顧客リスト</a>
-                        </li>
-                        <li>
-                            <a href="{{route('dashboard.table3')}}">
-                                <i class="fas fa-map-marker-alt"></i>請求書リスト</a>
-                        </li>
-                        <li class="has-sub">
-                            <a class="js-arrow" href="#">
-                                <i class="fas fa-copy"></i>
-                                ページ</a>
-                            <ul class="list-unstyled navbar__sub-list js-sub-list">
-                                <li>
-                                    <a href="{{route('login')}}">
-                                        ログイン</a>
-                                </li>
-                                <li>
-                                    <a href="{{ route('register') }}">
-                                        アカウントを作成する</a>
-                                </li>
-
-                            </ul>
-                        </li>
                     </ul>
                 </li>
             </ul>
@@ -123,6 +92,11 @@
                 <li>
                     <a href="{{route('dashboard.table3')}}">
                         <i class="fas fa-map-marker-alt"></i>請求書リスト</a>
+                </li>
+
+                <li>
+                    <a href="{{route('dashboard.table4')}}">
+                        <i class="fas fa-map-marker-alt"></i>ニュースリスト</a>
                 </li>
                 <li class="has-sub">
                     <a class="js-arrow" href="#">

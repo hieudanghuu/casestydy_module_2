@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\Order;
+use App\Post;
 use App\Sim;
 use App\User;
 use Illuminate\Http\Request;
@@ -44,22 +45,30 @@ class DashboardController extends Controller
 
     public function table3()
     {
-        $orders = Order::paginate(10);
+        $orders = Order::all();
 
         return view('dashboard.table3', compact('orders'));
 
     }
+    public function table4()
+    {
+        $post = Post::all();
 
+        return view('dashboard.crudPOST', compact('post'));
 
-    public function table3Edit(Order $order,$id)
+    }
+
+    public function table3Edit(Order $order, $id)
     {
         $order = Order::findOrFail($id);
-        return view('dashboard.table3Edit',compact('order'));
+        return view('dashboard.table3Edit', compact('order'));
     }
 
 
-    public function table3Update(Request $request, Order $order)
+    public function table3Update(Request $request)
     {
+        $id = \request('order_id');
+        $order = Order::findOrFail($id);
 
         $order->user_name = $request->input('user_name');
         $order->order_prices = $request->input('order_prices');
@@ -82,6 +91,6 @@ class DashboardController extends Controller
 
     public function table3Delete()
     {
-        
+
     }
 }

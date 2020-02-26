@@ -86,10 +86,6 @@ class CartController extends Controller
     public function show()
     {
         $sim = Cart::content();
-
-//        if ($sim->sim_category_id === $this->category->category_id) {
-//            $categories = Category::findOrFail($sim->sim_category_id);
-//        }
         return view('BanSim.catalog.cart', compact('sim', 'id'));
     }
 

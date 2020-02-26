@@ -59,7 +59,7 @@
                                         <div class="table-responsive m-b-40">
                                             <div class="col-12"><h1>
                                                     未処理の注文</h1></div>
-                                            <table class="table table-borderless table-data3">
+                                            <table class="table table-borderless table-data3 mt-5">
                                                 <thead class="table-light">
                                                 <tr>
                                                     <th>ID</th>
@@ -121,7 +121,7 @@
                                             </table>
                                             <div class="col-12 mt-5">
                                                 <h1>注文が処理されました</h1></div>
-                                            <table class="table table-borderless table-data3">
+                                            <table class="table table-borderless table-data3 mt-5">
                                                 <thead class="table-warning">
                                                 <tr>
                                                     <th>ID</th>

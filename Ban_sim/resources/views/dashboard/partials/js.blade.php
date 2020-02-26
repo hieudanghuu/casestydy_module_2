@@ -16,7 +16,11 @@
 <script src="{{asset('CoolAdmin/vendor/perfect-scrollbar/perfect-scrollbar.js')}}"></script>
 <script src="{{asset('CoolAdmin/vendor/chartjs/Chart.bundle.min.js')}}"></script>
 <script src="{{asset('CoolAdmin/vendor/select2/select2.min.js')}}"></script>
-
+{{--<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>--}}
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.4.0/bootbox.min.js"></script>
+{{--<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>--}}
+@yield('jsHeader')
 <!-- full calendar requires moment along jquery which is included above -->
 <script src="{{asset('CoolAdmin/vendor/fullcalendar-3.10.0/lib/moment.min.js')}}"></script>
 <script src="{{asset('CoolAdmin/vendor/fullcalendar-3.10.0/fullcalendar.js')}}"></script>

@@ -20,7 +20,9 @@ Auth::routes();
 //});
 
 
-
+Route::get('dashboard/post',function (){
+    return view('dashboard.crudPOST');
+});
 
 //
 
@@ -47,6 +49,9 @@ Route::group(['prefix' => ''], function () {
     Route::resource('sim', 'SimController')->middleware('admin');
     Route::get('/login','HomeController@login')->name('login');
     Route::get('/search','SearchController@search')->name('search.sim');
+    Route::get('/post/search','PostController@search')->name('post.search');
+    Route::get('/post','PostController@post')->name('post');
+
 
 
 
@@ -59,17 +64,19 @@ Route::get('/destroy/{id}','CartController@destroy')->name('destroy.cart');
 Route::get('/search/{id}','SearchController@search_name')->name('search.name');
 Route::post('/search/sim-price','SearchController@search_price')->name('search.price');
 
-Route::get('/dashboard','DashboardController@index')->name('dashboard');
-Route::get('/dashboard/table','DashboardController@table')->name('dashboard.table');
-Route::get('/dashboard/table2','DashboardController@table2')->name('dashboard.table2');
-Route::get('/dashboard/table3','DashboardController@table3')->name('dashboard.table3');
-Route::get('/dashboard/table3/edit{id}','DashboardController@table3Edit')->name('dashboard.table3Edit');
-Route::post('/dashboard/table3/update','DashboardController@table3Update')->name('dashboard.table3Update');
+Route::get('/dashboard','DashboardController@index')->name('dashboard')->middleware('admin');;
+Route::get('/dashboard/table','DashboardController@table')->name('dashboard.table')->middleware('admin');;
+Route::get('/dashboard/table2','DashboardController@table2')->name('dashboard.table2')->middleware('admin');;
+Route::get('/dashboard/table3','DashboardController@table3')->name('dashboard.table3')->middleware('admin');;
+Route::get('/dashboard/table4','DashboardController@table4')->name('dashboard.table4')->middleware('admin');
+Route::get('/dashboard/table3/edit{id}','DashboardController@table3Edit')->name('dashboard.table3Edit')->middleware('admin');;
+Route::post('/dashboard/table3/update','DashboardController@table3Update')->name('dashboard.table3Update')->middleware('admin');;
 
 
 
-Route::get('/dashboard/table/{id}','OrderController@destroy')->name('dashboard.destroy.order');
-Route::get('/dashboard/table/{id}','HomeController@destroy')->name('dashboard.destroy.user');
+Route::get('/dashboard/table/{id}','OrderController@destroy')->name('dashboard.destroy.order')->middleware('admin');;
+Route::get('/dashboard/table/{id}','HomeController@destroy')->name('dashboard.destroy.user')->middleware('admin');;
+
 
 
 

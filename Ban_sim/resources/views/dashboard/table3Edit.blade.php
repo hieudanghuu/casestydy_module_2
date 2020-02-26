@@ -10,12 +10,13 @@
         <div class="row">
             <div class="col-12"><h1>製品を編集する</h1></div>
             <div class="col-12">
-                <form  action="{{ route('dashboard.table3Update', $order->order_id) }}" method="post" enctype="multipart/form-data">
+                <form  action="{{ route('dashboard.table3Update') }}" method="post" enctype="multipart/form-data">
                     @csrf
 
                     <div class="form-group">
                         <label>名前</label>
                         <input type="text" class="form-control" name="user_name" value="{{$order->user_name}}" required>
+                        <input type="hidden" class="form-control" name="order_id" value="{{$order->order_id}}" required>
                     </div>
                     <div class="form-group">
                         <label>製品名</label>
@@ -64,6 +65,7 @@
                     <button type="submit" class="btn btn-primary">修正する</button>
                     <a href="{{ route('dashboard.table3')}}" role="button" class="btn btn-secondary">取り消す</a>
                 </form>
+
 
             </div>
         </div>

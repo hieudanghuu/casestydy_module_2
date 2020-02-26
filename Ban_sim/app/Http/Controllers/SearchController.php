@@ -43,4 +43,6 @@ class SearchController extends Controller
         }
         return view('BanSim.catalog.search', compact('search_sim'));
     }
+
+
 }

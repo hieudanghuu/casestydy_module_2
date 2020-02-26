@@ -14,6 +14,11 @@
                                 class="icon-paper-plane"></span></div>
                         <span class="text">youremail@email.com</span>
                     </div>
+                    <div class="col-md pr-4 d-flex topper align-items-center">
+                        <div class="icon mr-2 d-flex justify-content-center align-items-center">
+                            <span class="icon-facebook"><a href="https://www.facebook.com/ctsconnecttosucceed/">acebook</a></span>
+                        </div>
+                    </div>
                     <div class="col-md-5 pr-4 d-flex topper align-items-center text-lg-right">
                         <span class="text">7-45-3グリーンヒルハヶ崎304 Matsudo, Chiba</span>
                     </div>
@@ -33,6 +38,8 @@
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active"><a href="{{route('index')}}" class="nav-link">
                         ホームページ</a></li>
+                <li class="nav-item active"><a href="{{route('post')}}" class="nav-link">
+                        ニュース</a></li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false">カタログ</a>
@@ -52,8 +59,10 @@
                         </li>
                     @endif
                 @else
+                    @if(Auth::user()->name === 'hieu')
+
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('sim.index') }}">製品を編集する</a>
+                        <a class="nav-link" href="{{ route('dashboard') }}">制御盤</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
@@ -71,6 +80,24 @@
                             </form>
                         </div>
                     </li>
+                        @else
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{ Auth::user()->name }} <span class="caret"></span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                   onclick="event.preventDefault();
+                                   document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                </a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
+                            </div>
+                        </li>
+                    @endif
                 @endguest
                 <li class="nav-item cta cta-colored"><a href="{{route('cart')}}" class="nav-link"><span
                             class="icon-shopping-cart btn-warning "></span>[{{Cart::count()}}]</a></li>

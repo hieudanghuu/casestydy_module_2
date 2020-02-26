@@ -4,9 +4,12 @@
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <title>Document</title>
     @include('dashboard.partials.head')
+
+    <style>
+    </style>
 </head>
-<body class="animsition">
-<div class="container">
+<body>
+<div class="container-fluid">
     @yield('content')
 </div>
 </body>

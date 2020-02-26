@@ -29,3 +29,10 @@ Route::get('dashboard/product/{id}','AjaxController@show');
 Route::post('dashboard/product','AjaxController@store');
 Route::put('dashboard/product/{id}','AjaxController@update');
 Route::delete('dashboard/product/{id}','AjaxController@destroy');
+
+
+Route::get('dashboard/post','PostController@index');
+Route::get('dashboard/post/{id}','PostController@show');
+Route::post('dashboard/post','PostController@store');
+Route::put('dashboard/post/{id}','PostController@update');
+Route::delete('dashboard/post/{id}','PostController@destroy');

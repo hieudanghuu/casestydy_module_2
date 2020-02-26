@@ -26,7 +26,7 @@ class SimController extends Controller
 
     public function index()
     {
-        $sims = $this->sim::whereNull('deleted_at')->paginate(5);
+        $sims = $this->sim::paginate(5);
         $categories = Category::all();
         return view('BanSim.crud.list', compact('sims', 'categories'));
 //        return view('BanSim.crud.list', ['sims' => $this->sim::paginate(5), 'categories' => $this->category::all()]);
