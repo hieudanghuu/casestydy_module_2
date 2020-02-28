@@ -10,7 +10,7 @@
             <div class="container-fluid p-0">
                 <div class="row d-md-flex no-gutters slider-text align-items-center justify-content-end"
                      data-scrollax-parent="true">
-                    <img class="one-third order-md-last img-fluid" src="{{asset('minishop/images/sim3.jpg')}}" alt="">
+                    <img class="one-third order-md-last img-fluid" src="{{asset('/minishop/images/sim3.jpg')}}" alt="">
                     <div class="one-forth d-flex align-items-center ftco-animate"
                          data-scrollax=" properties: { translateY: '70%' }">
                         <div class="text">
@@ -32,7 +32,7 @@
             <div class="container-fluid p-0">
                 <div class="row d-flex no-gutters slider-text align-items-center justify-content-end"
                      data-scrollax-parent="true">
-                    <img class="one-third order-md-last img-fluid" src="{{asset('minishop/images/sim9.png')}}" alt="">
+                    <img class="one-third order-md-last img-fluid" src="{{asset('/minishop/images/sim9.png')}}" alt="">
                     <div class="one-forth d-flex align-items-center ftco-animate"
                          data-scrollax=" properties: { translateY: '70%' }">
                         <div class="text">
@@ -55,7 +55,7 @@
             <div class="container-fluid p-0">
                 <div class="row d-flex no-gutters slider-text align-items-center justify-content-end"
                      data-scrollax-parent="true">
-                    <img class="one-third order-md-last img-fluid" src="{{asset('minishop/images/sim4.png')}}" alt="">
+                    <img class="one-third order-md-last img-fluid" src="{{asset('/minishop/images/sim4.png')}}" alt="">
                     <div class="one-forth d-flex align-items-center ftco-animate"
                          data-scrollax=" properties: { translateY: '70%' }">
                         <div class="text">
@@ -78,7 +78,7 @@
             <div class="container-fluid p-0">
                 <div class="row d-flex no-gutters slider-text align-items-center justify-content-end"
                      data-scrollax-parent="true">
-                    <img class="one-third order-md-last img-fluid" src="{{asset('minishop/images/sim5.jpg')}}" alt="">
+                    <img class="one-third order-md-last img-fluid" src="{{asset('/minishop/images/sim5.jpg')}}" alt="">
                     <div class="one-forth d-flex align-items-center ftco-animate"
                          data-scrollax=" properties: { translateY: '70%' }">
                         <div class="text">
