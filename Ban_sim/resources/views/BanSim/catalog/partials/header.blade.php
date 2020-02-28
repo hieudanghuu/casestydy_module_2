@@ -1,4 +1,3 @@
-
 <div class="py-1 bg-black">
     <div class="container">
         <div class="row no-gutters d-flex align-items-start align-items-center px-md-0">
@@ -16,7 +15,8 @@
                     </div>
                     <div class="col-md pr-4 d-flex topper align-items-center">
                         <div class="icon mr-2 d-flex justify-content-center align-items-center">
-                            <span class="icon-facebook"><a href="https://www.facebook.com/ctsconnecttosucceed/">acebook</a></span>
+                            <span class="icon-facebook"><a
+                                    href="https://www.facebook.com/ctsconnecttosucceed/">acebook</a></span>
                         </div>
                     </div>
                     <div class="col-md-5 pr-4 d-flex topper align-items-center text-lg-right">
@@ -46,41 +46,27 @@
                     <div class="dropdown-menu" aria-labelledby="dropdown04">
                         <a class="dropdown-item" href="{{route('shop')}}">店</a>
                         <a class="dropdown-item" href="{{route('cart')}}">カート</a>
+
+                        @if(Cart::count() > 0)
                         <a class="dropdown-item" href="{{ route('checkout') }}">お支払い</a>
+                            @endif
                     </div>
                 </li>
                 @guest
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        <a class="nav-link" href="{{ route('login') }}">{{ __('ログイン') }}</a>
                     </li>
                     @if (Route::has('register'))
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            <a class="nav-link" href="{{ route('register') }}">{{ __('サインアップ') }}</a>
                         </li>
                     @endif
                 @else
                     @if(Auth::user()->name === 'hieu')
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('dashboard') }}">制御盤</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            {{ Auth::user()->name }} <span class="caret"></span>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('logout') }}"
-                               onclick="event.preventDefault();
-                                   document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
-                            </a>
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                @csrf
-                            </form>
-                        </div>
-                    </li>
-                        @else
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('dashboard') }}">制御盤</a>
+                        </li>
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -92,7 +78,26 @@
                                    document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
                                 </a>
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                      style="display: none;">
+                                    @csrf
+                                </form>
+                            </div>
+                        </li>
+                    @else
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{ Auth::user()->name }} <span class="caret"></span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                   onclick="event.preventDefault();
+                                   document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                </a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                      style="display: none;">
                                     @csrf
                                 </form>
                             </div>

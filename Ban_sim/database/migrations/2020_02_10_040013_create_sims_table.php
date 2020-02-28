@@ -18,7 +18,7 @@ class CreateSimsTable extends Migration
             $table->string('sim_name');
             $table->double('sim_price');
             $table->longText('sim_image')->nullable();
-            $table->string('deleted_at')->nullable()->default('null');
+            $table->string('deleted_at')->nullable()->default(null);
             $table->unsignedBigInteger('sim_category_id');
             $table->foreign('sim_category_id')->references('category_id')->on('categories');
             $table->timestamps();

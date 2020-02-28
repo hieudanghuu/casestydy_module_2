@@ -160,7 +160,7 @@
                                     </div>
                                     <h3 class="heading"><a href="#">新製品に関するニュース</a></h3>
                                     <p>{{ $post->post_title }}</p>
-                                    <p><a href="blog-single.html" class="btn btn-primary py-2 px-3">詳細</a></p>
+                                    <p><a href="{{ route('post.show', $post->id) }}" class="btn btn-primary py-2 px-3">詳細</a></p>
                                 </div>
                             </div>
                         </div>
@@ -174,7 +174,7 @@
                     <form action="{{route('search.sim')}}" class="search-form" method="get">
                         <div class="form-group">
                             <span class="icon ion-ios-search"></span>
-                            <input type="text" class="form-control" placeholder="探している">
+                            <input type="text" class="form-control" placeholder="探している" name="key">
                         </div>
                     </form>
                 </div>

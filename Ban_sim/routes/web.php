@@ -51,6 +51,7 @@ Route::group(['prefix' => ''], function () {
     Route::get('/search','SearchController@search')->name('search.sim');
     Route::get('/post/search','PostController@search')->name('post.search');
     Route::get('/post','PostController@post')->name('post');
+    Route::get('/post/{id}','PostController@post_show')->name('post.show');
 
 
 
@@ -64,7 +65,7 @@ Route::get('/destroy/{id}','CartController@destroy')->name('destroy.cart');
 Route::get('/search/{id}','SearchController@search_name')->name('search.name');
 Route::post('/search/sim-price','SearchController@search_price')->name('search.price');
 
-Route::get('/dashboard','DashboardController@index')->name('dashboard')->middleware('admin');;
+Route::get('/dashboard','DashboardController@index')->name('dashboard')->middleware('admin');
 Route::get('/dashboard/table','DashboardController@table')->name('dashboard.table')->middleware('admin');;
 Route::get('/dashboard/table2','DashboardController@table2')->name('dashboard.table2')->middleware('admin');;
 Route::get('/dashboard/table3','DashboardController@table3')->name('dashboard.table3')->middleware('admin');;
@@ -74,8 +75,9 @@ Route::post('/dashboard/table3/update','DashboardController@table3Update')->name
 
 
 
-Route::get('/dashboard/table/{id}','OrderController@destroy')->name('dashboard.destroy.order')->middleware('admin');;
-Route::get('/dashboard/table/{id}','HomeController@destroy')->name('dashboard.destroy.user')->middleware('admin');;
+Route::get('/dashboard/table/destroy/{id}','OrderController@destroy')->name('dashboard.destroy.order')->middleware('admin');
+Route::get('/dashboard/table/show/{id}','OrderController@all_show')->name('dashboard.order.all_show')->middleware('admin');
+Route::get('/dashboard/table/{id}','HomeController@destroy')->name('dashboard.destroy.user')->middleware('admin');
 
 
 

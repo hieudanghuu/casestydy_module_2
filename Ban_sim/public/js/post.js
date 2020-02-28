@@ -14,6 +14,8 @@ post.drawTable = function(){
                     "<td>" + value.post_title + "</td>" +
                     // "<td>" + value.content + "</td>" +
                     "<td>" + " <img style='width: 100px ; height: auto' src='/minishop/images/"+value.image+"'/>" +  "</td>" +
+
+                    // "<td>"+"<img src='/minishop/images/"+ value.image +"' width='50px' height='60px'>"+"</td>" +
                     "<td>" + value.post_category_id + "</td>" +
                     "<td>" +
                     "<a href='javascript:;' onclick=post.getDetail(" + value.id + ")><i class='fa fa-edit'></i></a> " +
@@ -130,10 +132,22 @@ post.delete = function (id) {
     });
 };
 
+
+function readURL(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            $('#photo')
+                .attr('src', e.target.result);
+        };
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+
 post.init =function () {
     post.drawTable();
 };
-
 $(document).ready(function () {
     post.init();
 });

@@ -26,7 +26,7 @@ class SimController extends Controller
 
     public function index()
     {
-        $sims = $this->sim::paginate(5);
+        $sims = $this->sim::whereNull('deleted_at')->paginate(5);
         $categories = Category::all();
         return view('BanSim.crud.list', compact('sims', 'categories'));
 //        return view('BanSim.crud.list', ['sims' => $this->sim::paginate(5), 'categories' => $this->category::all()]);
@@ -51,6 +51,10 @@ class SimController extends Controller
      */
     public function store(Request $request)
     {
+        $validatedData = $request->validate([
+            'name' => 'bail|required|string|min:2|max:225',
+            'price' => 'bail|required|numeric',
+        ]);
         $sim = new Sim();
         $sim->sim_name = $request->input('name');
         $sim->sim_price = $request->input('price');
@@ -119,9 +123,9 @@ class SimController extends Controller
      * @param \App\Sim $sim
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Sim $sim)
+    public function destroy($id)
     {
-        $sim = Sim::findOrFail($sim->sim_id);
+        $sim = Sim::findOrFail($id);
         $sim->update(['deleted_at' => date("Y-m-d H:i:s")]);
         Session::flash('success', '削除成功');
         return redirect()->back();
@@ -132,6 +136,8 @@ class SimController extends Controller
         return request()->validate([
             'sim_name' => ['required','string','max:255'],
             'sim_price' => ['required','number'],
+            'sim_category_id' => ['required','number','max:10'],
+            'sim_image' => ['required','string'],
         ]);
     }
 

@@ -5,13 +5,15 @@
          style="background-image: url('{{asset('minishop/images/bg.png')}}');height: 380px"></div>
     <div class="col-12 mt-5">
         @if (Session::has('success'))
-            <h1><p class="text-success">
+            <h1><p class="text-success text-center">
                     <i class="fa fa-check" aria-hidden="true"></i>{{ Session::get('success') }}
+                    <input type="image" src="{{asset('minishop/images/icon.png')}}" style="height:60px">
                 </p>
             </h1>
         @endif
     </div>
     <section class="ftco-section bg-light mt-5 ">
+
         <div class="container">
             <div class="row">
                 <div class="col-md-8 col-lg-10 order-md-last">
@@ -27,16 +29,8 @@
                                     <div class="text py-3 pb-4 px-3">
                                         <div class="d-flex">
                                             <div class="cat">
-                                                <span>新しいシム2020</span>
-                                            </div>
-                                            <div class="rating">
-                                                <p class="text-right mb-0">
-                                                    <a href="#"><span class="ion-ios-star-outline"></span></a>
-                                                    <a href="#"><span class="ion-ios-star-outline"></span></a>
-                                                    <a href="#"><span class="ion-ios-star-outline"></span></a>
-                                                    <a href="#"><span class="ion-ios-star-outline"></span></a>
-                                                    <a href="#"><span class="ion-ios-star-outline"></span></a>
-                                                </p>
+                                                <span>新しいシム2020 </span>
+
                                             </div>
                                         </div>
                                         <h3><a href="#">プレステージ-品質-耐久性</a></h3>
@@ -125,14 +119,21 @@
                                         <div class="form-group">
                                             <label for="guests">からの価格:</label>
                                                 <i class="icon icon-arrow-down3"></i>
-                                                <input type="number" class="form-control" name="value1">
+                                                <input type="number" class="form-control" name="value1" required>
+                                            <div class="col-12">
+                                                @if (Session::has('danger'))
+                                                    <p class="text-danger">
+                                                        <i class="fa fa-check" aria-hidden="true"></i>{{ Session::get('danger') }}
+                                                    </p>
+                                                @endif
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label for="guests">マデ:</label>
                                                 <i class="icon icon-arrow-down3"></i>
-                                                <input type="number" class="form-control" name="value2">
+                                                <input type="number" class="form-control" name="value2" required>
                                         </div>
                                     </div>
                                 </div>

@@ -2,10 +2,15 @@
 @section('title','checkout')
 @section('main')
 
+    <script>
+        function selectFile() {
+            document.getElementById('buttonFile').click()
+        }
+    </script>
     <div class="hero-wrap hero-bread mt-5"
          style="background-image: url('{{asset('minishop/images/bg.png')}}');height: 380px">
     </div>
-    <h1 class="text-center btn-primary mt-5">お支払い手順</h1>
+    <h1 class="text-center btn-danger mt-5">お支払い手順</h1>
     <section class="ftco-section">
         <div class="container">
             <div class="row justify-content-center">
@@ -17,7 +22,7 @@
                         <form action="{{ route("checkout.save") }}" class="billing-form" method="post"
                               enctype="multipart/form-data">
                             @csrf
-                            <h1 class="mb-4 billing-heading "><strong>顧客</strong></h1>
+                            <h1 class="mb-4 billing-heading text-center"><strong>顧客情報</strong></h1>
                             <div class="row align-items-end">
                                 <div class="col-md-3">
                                     <div class="form-group">
@@ -29,10 +34,14 @@
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label for="country">住所</label>
+                                        <label for="country">
+                                            アバター</label>
                                         <img src="{{asset('minishop/images/avatar.png')}}" alt="image"
                                              style="max-width: 150px">
-                                        <input type="file" class="form-control" name="image">
+                                        <input id="buttonFile" hidden type="file" class="form-control" name="image">
+                                        <button class="btn btn-warning" onclick="selectFile()" type="button">
+                                            写真を選ぶ
+                                        </button>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
@@ -50,65 +59,71 @@
                                                value="{{Auth::user()->phone}}">
                                     </div>
                                 </div>
-                                <h1 class="mb-4 billing-heading mt-5">製品 </h1>
-                                @foreach(Cart::content() as $key=> $cart)
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="streetaddress">ノート</label>
+                                        <textarea name="note" id="" cols="30" rows="5" class="form-control"
+                                                  placeholder="メッセージを残しますか？"></textarea>
+                                    </div>
+                                </div>
 
-                                    <div class="row align-items-end mt-5">
-                                        <div class="col-md-9">
-                                            <div class="form-group">
-
-                                                <label for="image">画像</label>
-                                                @foreach($cart->options as $image)
-                                                    <img src="{{ 'data:image/jpeg;base64,'. $image }}" alt="image"
-                                                         style="max-width: 150px">
-                                                    @error('image')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                    @enderror
-                                                @endforeach
-                                            </div>
-                                        </div>
-                                        <div class="col-md-10">
-                                            <div class="form-group">
-                                                <label for="streetaddress">製品名</label>
-                                                <input type="text" class="form-control"
-                                                       placeholder="" value="{{$cart->name}}" name="product_name">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <div class="form-group">
-                                                <label for="streetaddress">量</label>
-                                                <input type="text" class="form-control"
-                                                       placeholder="" value="{{$cart->qty}}" name="qty">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="form-group">
-                                                <label for="streetaddress">価格</label>
-                                                <input type="number" class="form-control"
-                                                       placeholder="" value="{{ $cart->price }}" name="price">
-                                                <input type="hidden"
-                                                        value="{{ $cart->id }}" name="id">
-                                                <input type="hidden"
-                                                        value="{{ $cart->rowId }}" name="rowId">
-                                            </div>
-                                        </div>
-                                        <div class="w-100"></div>
-                                        <div class="col-md-12">
-                                            <div class="form-group mt-4">
-                                                <div class="radio">
-                                                    <label class="mr-3"><input type="radio" name="optradio"> Create an
-                                                        Account?</label>
-                                                    <label><input type="radio" name="optradio"> Ship to different
-                                                        address</label>
-                                                </div>
+                                <section class="ftco-section ftco-cart ">
+                                    <div class="container">
+                                        <h1 class="mb-4 billing-heading mt-5 text-center col-md-12">
+                                            注文した製品 </h1>
+                                        <div class="row">
+                                            <div class="col-md-12 ftco-animate">
+                                                カートには <span class="text-danger">{{Cart::count()}}</span> つの商品があります
+                                                <table class="table">
+                                                    <thead class="thead-primary">
+                                                    <tr class="text-center">
+                                                        <th></th>
+                                                        <th></th>
+                                                        <th>製品</th>
+                                                        <th>価格</th>
+                                                        <th>量</th>
+                                                        <th>総額</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    @foreach(Cart::content() as $key => $cart)
+                                                        <tr class="text-center">
+                                                            <td></td>
+                                                            <td class="image-prod">
+                                                                @foreach($cart->options as $image)
+                                                                    <img src="{{ 'data:image/jpeg;base64,'.$image }}"
+                                                                         alt="sim_image"
+                                                                         style="max-width: 150px">
+                                                                    <input type="hidden" value="{{$image}}"
+                                                                           name="image_product">
+                                                                @endforeach
+                                                            </td>
+                                                            <td class="product-name">
+                                                                <h3>新しいシム2020</h3>
+                                                                <p>{{ $cart->name }}</p>
+                                                                <input type="hidden" name="product" value="{{$cart->name}}">
+                                                            </td>
+                                                            <td class="price">{{ $cart->price }} 円</td>
+                                                            <input type="hidden" name="price" value="{{$cart->price}}">
+                                                            <input type="hidden" name="sim_id" value="{{$cart->id}}">
+                                                            <input type="hidden" value="{{ $cart->rowId }}" name="rowId">
+                                                            <td class="quantity">
+                                                                <div class="input-group mb-3">
+                                                                    <input type="text" name="qty"
+                                                                           class="quantity form-control input-number"
+                                                                           value="{{$cart->qty}}" min="1" max="100">
+                                                                </div>
+                                                            </td>
+                                                            <td class="total"> {{ $cart->price * $cart->qty}} 円</td>
+                                                        </tr>
+                                                        <!-- END TR-->
+                                                    @endforeach
+                                                    </tbody>
+                                                </table>
                                             </div>
                                         </div>
                                     </div>
-
-                                    <button type="submit" class="btn btn-primary py-3 px-4">注文する</button>
-                                @endforeach
+                                </section>
                             </div>
                             <!-- END -->
                             <div class="row mt-5 pt-3 d-flex">

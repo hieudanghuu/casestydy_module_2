@@ -15,14 +15,13 @@
 
             <section class="ftco-section bg-light ">
                 @if(count($search_sim) > 0)
-                <h1><span class="text-danger">{{count($search_sim)}}</span> シムが見つかりました </h1><br><br>
+                <h1 class="text-center"><span class="text-danger">{{count($search_sim)}}</span> シムが見つかりました </h1><br><br>
                 @endif
                 <div class="container mt-5">
                     <div class="row">
                         <div class="col-md-8 col-lg-10 order-md-last">
                             <div class="row">
                                 @forelse($search_sim as $key => $sim)
-
                                     <div class="col-sm-12 col-md-12 col-lg-4 ftco-animate d-flex">
                                         <div class="product d-flex flex-column">
                                             <a href="#" class="img-prod">
@@ -35,15 +34,6 @@
                                                 <div class="d-flex">
                                                     <div class="cat">
                                                         <span>新しいシム2020</span>
-                                                    </div>
-                                                    <div class="rating">
-                                                        <p class="text-right mb-0">
-                                                            <a href="#"><span class="ion-ios-star-outline"></span></a>
-                                                            <a href="#"><span class="ion-ios-star-outline"></span></a>
-                                                            <a href="#"><span class="ion-ios-star-outline"></span></a>
-                                                            <a href="#"><span class="ion-ios-star-outline"></span></a>
-                                                            <a href="#"><span class="ion-ios-star-outline"></span></a>
-                                                        </p>
                                                     </div>
                                                 </div>
                                                 <h3><a href="#">プレステージ-品質-耐久性</a></h3>

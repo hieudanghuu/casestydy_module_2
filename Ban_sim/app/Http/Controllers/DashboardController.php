@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Category;
 use App\Order;
 use App\Post;
+use App\Product_Order;
 use App\Sim;
 use App\User;
 use Illuminate\Http\Request;
@@ -19,12 +20,17 @@ class DashboardController extends Controller
         $categorys = Category::all();
         $orders = Order::all();
         $users = User::all();
-
-        $total = $orders->sum('order_prices');
-
-        return view('index', compact('sims', 'categorys', 'orders', 'users', 'total'));
+        $product_order = Product_Order::all();
+        $total=0;
+        foreach ($orders as $order) {
+            if ($order->status == 0) {
+                    $a=$order->totals;
+                    $number = join(explode(',', $a));
+                $total += (float)($number);
+            }
+        }
+        return view('index', compact('sims', 'categorys', 'orders', 'users', 'total', 'product_order'));
     }
-
 
     public function table()
     {
@@ -50,6 +56,7 @@ class DashboardController extends Controller
         return view('dashboard.table3', compact('orders'));
 
     }
+
     public function table4()
     {
         $post = Post::all();

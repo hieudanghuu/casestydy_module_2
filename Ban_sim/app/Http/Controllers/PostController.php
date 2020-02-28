@@ -106,4 +106,11 @@ class PostController extends Controller
         $posts = Post::all();
         return view('BanSim.catalog.post',compact('posts'));
     }
+
+    public function post_show($id){
+        $posts = Post::all();
+        $post = Post::findOrFail($id);
+
+        return view('BanSim.catalog.post_show',compact('posts','post'));
+    }
 }

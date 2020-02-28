@@ -1,9 +1,6 @@
 @extends('dashboard.partials.main')
 @section('title','index')
 @include('dashboard.partials.head')
-
-
-
 @section('content')
     <div class="page-wrapper">
         <!-- HEADER MOBILE-->
@@ -47,7 +44,6 @@
                     </div>
                 </div>
             </header>
-
 
             <!-- HEADER DESKTOP-->
             <!-- MAIN CONTENT-->
@@ -123,10 +119,9 @@
                                     <div class="overview__inner">
                                         <div class="overview-box clearfix">
                                             <div class="icon">
-                                                <i class="zmdi zmdi-money"></i>
                                             </div>
                                             <div class="text">
-                                                <h2>{{$total}}</h2>
+                                                <h2>{{$total}} <i class = "fa fa-yen-sign"></i></h2>
                                                 <span>収入</span>
                                             </div>
                                         </div>
@@ -140,102 +135,60 @@
                         <div class="main-content">
                             <div class="section__content section__content--p30">
                                 <div class="container-fluid">
-                        <div class="row">
-
-                            <div class="col-lg-9">
-                                <h2 class="title-1 m-b-25">販売アイテム</h2>
-                                <div class="table-responsive table--no-card m-b-40">
-                                    <table class="table table-borderless table-striped table-earning">
-                                        <thead>
-                                        <tr>
-                                            <th>時間</th>
-                                            <th>請求書 ID</th>
-                                            <th>製品名</th>
-                                            <th class="text-right">価格</th>
-                                            <th class="text-right">量</th>
-                                            <th class="text-right">合計</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        @foreach($orders as $order)
-
-                                            <tr>
-                                                <td>{{$order->created_at}}</td>
-                                                <td>{{$order->order_id}}</td>
-                                                <td>{{$order->order_product}}</td>
-                                                <td class="text-right">{{$order->order_prices.'円'}}</td>
-                                                <td class="text-right">{{$order->quantity}}</td>
-                                                <td class="text-right">{{$order->totals}} 円</td>
-                                            </tr>
-
-                                        @endforeach
-
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                            <div class="col-lg-3">
-                                <div class="au-card au-card--bg-blue au-card-top-countries m-b-30">
-                                    <div class="au-card-inner">
-                                        <div class="table-responsive">
-                                            <table class="table table-top-countries">
-                                                <tbody>
-                                                <tr>
-                                                    <td>United States</td>
-                                                    <td class="text-right">$119,366.96</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Australia</td>
-                                                    <td class="text-right">$70,261.65</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>United Kingdom</td>
-                                                    <td class="text-right">$46,399.22</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Turkey</td>
-                                                    <td class="text-right">$35,364.90</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Germany</td>
-                                                    <td class="text-right">$20,366.96</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>France</td>
-                                                    <td class="text-right">$10,366.96</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Australia</td>
-                                                    <td class="text-right">$5,366.96</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Italy</td>
-                                                    <td class="text-right">$1639.32</td>
-                                                </tr>
-                                                </tbody>
-                                            </table>
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <h2 class="title-1 m-b-25">販売アイテム</h2>
+                                            <div class="table-responsive table--no-card m-b-40">
+                                                <table class="table table-borderless  table-earning">
+                                                    <thead>
+                                                    <tr>
+                                                        <th>時間</th>
+                                                        <th>請求書 ID</th>
+                                                        <th>製品名</th>
+                                                        <th>合計</th>
+                                                        <th></th>
+                                                        <th></th>
+                                                        <th></th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    @foreach($orders as $order)
+                                                        <tr>
+                                                            <td>{{$order->created_at}}</td>
+                                                            <td>{{$order->order_id}}</td>
+                                                            <td>{{$order->user_name}}</td>
+                                                            <td>{{$order->totals}} 円</td>
+                                                            @if($order->status == 1)
+                                                                <td><a class="btn btn-info text-white">未確認</a></td>
+                                                            @else
+                                                                <td><a class="btn btn-warning text-white">確認しました</a>
+                                                                </td>
+                                                            @endif
+                                                            <td><a class="btn btn-danger text-white"
+                                                                   href="{{route('dashboard.destroy.order',$order->order_id)}}">削除する</a>
+                                                            </td>
+                                                            <td>
+                                                                <a class="au-btn-submit "
+                                                                   href="{{route('dashboard.order.all_show',$order->order_id)}}"><i
+                                                                        class=" btn zmdi zmdi-search"></i></a>
+                                                            </td>
+                                                        </tr>
+                                                    @endforeach
+                                                    </tbody>
+                                                </table>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="copyright">
-                                    <p>Copyright © 2018 Colorlib. All rights reserved. Template by <a
-                                            href="https://colorlib.com">Colorlib</a>.</p>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
-            </div>  </div>
-                </div>
+                <!-- END MAIN CONTENT-->
+                <!-- END PAGE CONTAINER-->
             </div>
-            <!-- END MAIN CONTENT-->
-            <!-- END PAGE CONTAINER-->
-        </div>
 
+        </div>
     </div>
 @endsection
 <!-- Jquery JS-->

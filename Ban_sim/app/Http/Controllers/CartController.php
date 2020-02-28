@@ -28,11 +28,7 @@ class CartController extends Controller
     {
         $this->sim = $sim;
         $this->category = $category;
-
-
     }
-
-
     public function index()
     {
         //

@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Order;
+use App\Product_Order;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use App\Category;
 use App\Sim;
@@ -15,37 +17,45 @@ class CheckoutController extends Controller
     public function show()
     {
         $cart = Cart::content();
-        foreach ($cart as $item)
-        {
-        $user = User::find($item->id);
+        foreach ($cart as $item) {
+            $user = User::find($item->id);
         }
-        return view('BanSim.catalog.checkout',compact('user'));
+        return view('BanSim.catalog.checkout');
     }
-    public function  checkout_save(Request $request)
+
+    public function checkout_save(Request $request)
     {
+        $cart = Session::get('cart')["default"]->toArray();
         $order = new Order();
+
         $order->user_name = $request->input('name');
-        $order->order_prices  = $request->input('price');
-        $order->order_product = \request('product_name');
-        $order->quantity = \request('qty');
+        $order->note = \request('note');
+        $order->totals = \request('total');
         $order->phone = \request('phone');
         $order->address = \request('address');
-        $order->totals = \request('total');
-        $order->user_id = \request('user_id');
-
-
         if ($request->hasFile('image')) {
             $image = base64_encode(file_get_contents($request->file('image')));
             $order->order_image = $image;
         }
+        $order->user_id = \request('user_id');
         $order->save();
-        $rowId = \request('rowId');
-        Cart::update($rowId,0);
+        foreach ($cart as $key => $value) {
+
+            $product_order = new Product_Order();
+            $product_order->prices = $value['price'];
+            $product_order->product = $value['name'];
+            $product_order->quantity = $value['qty'];
+            $product_order->image = $value['options']['image'];
+            $product_order->sim_id = $value['id'];
+            $product_order->order_id = $order->order_id;
+            $product_order->save();
+            $rowId = $value['rowId'];
+            Cart::update($rowId, 0);
+        }
+        Session::forget('cart');
         $sims = Sim::paginate(6);
-//        $cart = \request('rowId');
-        Session::flash('success', '成功した購入');
-        return view('BanSim.catalog.shop',compact('sims'));
-//        return redirect()->route('destroy.checkout',compact('cart'));
+        Session::flash('success', "成功した購入");
+        return view('BanSim.catalog.shop', compact('sims'));
     }
 
 }

@@ -15,6 +15,10 @@ class CreateProductOrderTable extends Migration
     {
         Schema::create('product_order', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->double('prices');
+            $table->string('product');
+            $table->integer('quantity');
+            $table->longText('image')->nullable();
             $table->unsignedBigInteger('sim_id');
             $table->foreign('sim_id')->references('sim_id')->on('sims');
             $table->unsignedBigInteger('order_id');

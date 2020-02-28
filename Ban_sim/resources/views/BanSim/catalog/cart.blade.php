@@ -24,8 +24,6 @@
                         </thead>
                         <tbody>
                         @foreach(Cart::content() as $key => $cart)
-{{--                            {{ dd(Cart::content()) }}--}}
-
                             <tr class="text-center">
                                 <td class="product-remove"><a href="{{ route('destroy.cart', $cart->rowId) }}"><span class="ion-ios-close"></span></a>
                                 </td>
@@ -54,8 +52,10 @@
                                 </td>
                                 <td class="total"> {{ $cart->price * $cart->qty}} 円</td>
                                 </form>
-                            </tr><!-- END TR-->
-                            @endforeach
+                            </tr>
+                            <!-- END TR-->
+
+                        @endforeach
                         </tbody>
                     </table>
                 </div>

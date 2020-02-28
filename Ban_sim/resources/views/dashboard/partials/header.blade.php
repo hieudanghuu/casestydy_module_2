@@ -3,7 +3,7 @@
         <div class="container-fluid">
             <div class="header-mobile-inner">
                 <a class="logo" href="{{route('index')}}">
-                    <img src="{{asset('CoolAdmin/images/icon/logo.png')}}" alt="CoolAdmin"/>
+                    <img src="{{asset('CoolAdmin/images/icon/logo-1.jpg')}}" alt="CoolAdmin"/>
                 </a>
                 <button class="hamburger hamburger--slider" type="button">
                             <span class="hamburger-box">
@@ -18,7 +18,7 @@
             <ul class="navbar-mobile__list list-unstyled">
                 <li >
                     <a  href="{{route('dashboard')}}">
-                        <i class="fas fa-tachometer-alt"></i>
+                        <i class="fas fa-calendar-alt"></i>
                         制御盤</a>
                 </li>
                 <li>
@@ -34,7 +34,8 @@
                 </li>
                 <li>
                     <a href="{{route('dashboard.table3')}}">
-                        <i class="fas fa-map-marker-alt"></i>請求書リスト</a>
+                        <i class="fas fa-calendar-alt"></i>
+                        請求書リスト</a>
                 </li>
 
                 <li>
@@ -66,7 +67,7 @@
 <!-- MENU SIDEBAR-->
 <aside class="menu-sidebar d-none d-lg-block">
     <div class="logo">
-        <a href="#">
+        <a href="{{route('index')}}">
             <img src="{{asset('CoolAdmin/images/icon/logo-1.jpg')}}" alt="Cool Admin"/>
         </a>
     </div>
@@ -91,12 +92,12 @@
                 </li>
                 <li>
                     <a href="{{route('dashboard.table3')}}">
-                        <i class="fas fa-map-marker-alt"></i>請求書リスト</a>
+                        <i class="fas fa-calendar-alt"></i>請求書リスト</a>
                 </li>
 
                 <li>
                     <a href="{{route('dashboard.table4')}}">
-                        <i class="fas fa-map-marker-alt"></i>ニュースリスト</a>
+                        <i class="fas fa-calendar-alt"></i>ニュースリスト</a>
                 </li>
                 <li class="has-sub">
                     <a class="js-arrow" href="#">

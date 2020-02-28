@@ -6,13 +6,9 @@
 <body>
 @include('BanSim.catalog.partials.header')
 
-
-
-                    <div class="container">
-                        @yield('main')
-                    </div>
-
-
+<div class="container">
+    @yield('main')
+</div>
 
 @include('BanSim.catalog.partials.footer')
 @include('BanSim.catalog.partials.js')

@@ -3,6 +3,11 @@
 
 @section('main')
 
+    <script>
+        function selectFile() {
+            document.getElementById('buttonFile').click()
+        }
+    </script>
 <div class="hero-wrap hero-bread mt-5" style="background-image: url('{{asset('minishop/images/bg_6.jpg')}}');height: 380px">
 
 </div>
@@ -18,21 +23,23 @@
                 <div class="form-group">
                     <label for="name">製品名</label>
                     <input type="text" class="form-control" name="name" placeholder="名前を入力してください" required>
+                    <p class="help is-danger" style="color:#FF0000";>{{ $errors->first('name') }}</p>
+
                 </div>
                 <div class="form-group">
                     <label for="price">価格</label>
                     <input type="text" class="form-control" name="price" placeholder="価格を入力してください" required>
+                    <p class="help is-danger " style="color:#FF0000";>{{ $errors->first('price') }}</p>
                 </div>
 
                 <div class="form-group">
-                    <label for="sim_image" class="col-md-4 col-form-label text-md-right">写真</label>
                     <div class="col-md-6">
-                        <input id="sim_image" type="file" class="form-control" placeholder="" name="sim_image">
-                        @error('sim_image')
-                        <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                        </span>
-                        @enderror
+                        <img src="{{asset('minishop/images/image.png')}}" alt="image"
+                             style="max-width: 150px">
+                        <input id="buttonFile" hidden type="file" class="form-control" name="sim_image">
+                        <button class="btn btn-warning" onclick="selectFile()" type="button"> 写真
+                        </button>
+
                     </div>
                     <div class="form-group">
                         <label for="sim_category_id">カテゴリーID</label>

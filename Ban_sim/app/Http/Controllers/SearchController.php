@@ -37,9 +37,10 @@ class SearchController extends Controller
     public function search_price(Request $request)
     {
         if ($request->value1 > $request->value2){
-            echo 'alert(no)';
+             Session::flash('danger', '間違った価格');
+            return redirect()->back();
         }else {
-            $search_sim = Sim::where('sim_price', '>',  $request->value1)->orwhere('sim_price','<',$request->value2)->get();
+            $search_sim = Sim::whereBetween('sim_price', [$request->value1, $request->value2])->get();;
         }
         return view('BanSim.catalog.search', compact('search_sim'));
     }
