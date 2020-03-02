@@ -3,7 +3,7 @@
         <div class="container-fluid">
             <div class="header-mobile-inner">
                 <a class="logo" href="{{route('index')}}">
-                    <img src="{{asset('CoolAdmin/images/icon/logo-1.jpg')}}" alt="CoolAdmin"/>
+                    <img src="{{asset('cooladmin/images/icon/logo1.jpg')}}" alt="CoolAdmin"/>
                 </a>
                 <button class="hamburger hamburger--slider" type="button">
                             <span class="hamburger-box">
@@ -16,8 +16,8 @@
     <nav class="navbar-mobile">
         <div class="container-fluid">
             <ul class="navbar-mobile__list list-unstyled">
-                <li >
-                    <a  href="{{route('dashboard')}}">
+                <li>
+                    <a href="{{route('dashboard')}}">
                         <i class="fas fa-calendar-alt"></i>
                         制御盤</a>
                 </li>
@@ -68,14 +68,14 @@
 <aside class="menu-sidebar d-none d-lg-block">
     <div class="logo">
         <a href="{{route('index')}}">
-            <img src="{{asset('CoolAdmin/images/icon/logo-1.jpg')}}" alt="Cool Admin"/>
+            <img src="{{asset('cooladmin/images/icon/logo1.jpg')}}" alt="Cool Admin"/>
         </a>
     </div>
     <div class="menu-sidebar__content js-scrollbar1">
         <nav class="navbar-sidebar">
             <ul class="list-unstyled navbar__list">
-                <li >
-                    <a  href="{{route('dashboard')}}">
+                <li>
+                    <a href="{{route('dashboard')}}">
                         <i class="fas fa-tachometer-alt"></i>
                         制御盤</a>
                 </li>
@@ -99,21 +99,15 @@
                     <a href="{{route('dashboard.table4')}}">
                         <i class="fas fa-calendar-alt"></i>ニュースリスト</a>
                 </li>
-                <li class="has-sub">
-                    <a class="js-arrow" href="#">
-                        <i class="fas fa-copy"></i>
-                        ページ</a>
-                    <ul class="list-unstyled navbar__sub-list js-sub-list">
-                        <li>
-                            <a href="{{route('login')}}">
-                                ログイン</a>
-                        </li>
-                        <li>
-                            <a href="{{ route('register') }}">
-                                アカウントを作成する</a>
-                        </li>
 
-                    </ul>
+                <li>
+                    <a href="{{route('login')}}">
+                        <i class="icon-person"></i>
+                        ログイン</a>
+                </li>
+                <li>
+                    <a href="{{ route('register') }}"> <i class="icon-person"></i>
+                        アカウントを作成する</a>
                 </li>
             </ul>
         </nav>

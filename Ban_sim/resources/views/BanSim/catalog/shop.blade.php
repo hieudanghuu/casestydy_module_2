@@ -23,7 +23,7 @@
                                 <div class="product d-flex flex-column">
                                     <a href="#" class="img-prod">
                                         <img class="img-fluid " src="{{ 'data:image/jpeg;base64,'.$sim->sim_image }}"
-                                             style="height:180px" alt="Colorlib Template">
+                                             style="height:220px" alt="Colorlib Template">
                                         <div class="overlay"></div>
                                     </a>
                                     <div class="text py-3 pb-4 px-3">
@@ -137,7 +137,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <button type="submit" class="btn bg-info text-dark">見つける</button>
+                                <button type="submit" class="btn bg-warning text-dark">見つける</button>
                             </form>
                         </div>
                     </div>
