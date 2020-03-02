@@ -8,7 +8,7 @@
         }
     </script>
     <div class="hero-wrap hero-bread mt-5"
-         style="background-image: url('{{asset('minishop/images/bg.png')}}');height: 380px">
+         style="background-image: url('{{asset('minishop/images/bg.png')}}');height: 550px">
     </div>
     <h1 class="text-center btn-danger mt-5">お支払い手順</h1>
     <section class="ftco-section">

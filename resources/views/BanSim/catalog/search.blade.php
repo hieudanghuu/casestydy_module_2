@@ -4,7 +4,7 @@
 @section('main')
 
     <div class="hero-wrap hero-bread mt-5"
-         style="background-image: url('{{asset('minishop/images/bg.png')}}');height: 380px">
+         style="background-image: url('{{asset('minishop/images/bg.png')}}');height: 550px">
     </div>
     <div class="col-12 mt-5">
         <div class="row">

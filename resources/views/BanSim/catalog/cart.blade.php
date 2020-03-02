@@ -3,7 +3,7 @@
 @section('main')
 
     <div class="hero-wrap hero-bread mt-5"
-         style="background-image: url('{{asset('minishop/images/bg.png')}}');height: 380px">
+         style="background-image: url('{{asset('minishop/images/bg.png')}}');height: 550px">
     </div>
 
     <section class="ftco-section ftco-cart mt-5">

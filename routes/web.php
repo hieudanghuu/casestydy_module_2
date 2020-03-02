@@ -44,6 +44,8 @@ Route::group(['prefix' => ''], function () {
     Route::get('/product','ShopController@product')->name('product');
     Route::get('/checkout','CheckoutController@show')->name('checkout')->middleware('auth');
     Route::post('/shop','CheckoutController@checkout_save')->name('checkout.save');
+    Route::post('/contact','ShopController@contact')->name('contact');
+
 
     Route::get('/contact','ShopController@contact')->name('contact')->middleware('auth');
     Route::resource('sim', 'SimController')->middleware('admin');

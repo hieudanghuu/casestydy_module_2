@@ -2,12 +2,7 @@
 <html lang="en">
 <style>
 
-    .center {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        width: 110%;
-    }
+
 </style>
 <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">

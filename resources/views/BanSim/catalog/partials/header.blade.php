@@ -11,7 +11,7 @@
                     <div class="col-md pr-4 d-flex topper align-items-center">
                         <div class="icon mr-2 d-flex justify-content-center align-items-center"><span
                                 class="icon-paper-plane"></span></div>
-                        <span class="text">youremail@email.com</span>
+                        <span class="text">danghuuhieu08091989@gmail.com</span>
                     </div>
                     <div class="col-md pr-4 d-flex topper align-items-center">
                         <div class="icon mr-2 d-flex justify-content-center align-items-center">
@@ -46,7 +46,8 @@
                     <div class="dropdown-menu" aria-labelledby="dropdown04">
                         <a class="dropdown-item" href="{{route('shop')}}">店</a>
                         <a class="dropdown-item" href="{{route('cart')}}">カート</a>
-
+                        <a class="dropdown-item" href="{{route('contact')}}">会社の詳細
+                        </a>
                         @if(Cart::count() > 0)
                         <a class="dropdown-item" href="{{ route('checkout') }}">お支払い</a>
                             @endif
@@ -76,7 +77,7 @@
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                    document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
+                                    {{ __('ログイン') }}
                                 </a>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST"
                                       style="display: none;">
@@ -94,7 +95,7 @@
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                    document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
+                                    {{ __('ログイン') }}
                                 </a>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST"
                                       style="display: none;">

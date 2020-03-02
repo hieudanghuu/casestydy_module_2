@@ -28,7 +28,7 @@
 <script src="{{asset('minishop/cooladmin/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js')}}"></script>
 <script src="{{asset('minishop/cooladmin/vendor/counter-up/jquery.waypoints.min.js')}}"></script>
 <script src="{{asset('minishop/cooladmin/vendor/counter-up/jquery.counterup.min.js')}}"></script>
-<script src="{{asset('vcooladmin/vendor/circle-progress/circle-progress.min.js')}}"></script>
+<script src="{{asset('minishop/cooladmin/vendor/circle-progress/circle-progress.min.js')}}"></script>
 <script src="{{asset('minishop/cooladmin/vendor/perfect-scrollbar/perfect-scrollbar.js')}}"></script>
 <script src="{{asset('minishop/cooladmin/vendor/chartjs/Chart.bundle.min.js')}}"></script>
 <script src="{{asset('minishop/cooladmin/vendor/select2/select2.min.js')}}"></script>

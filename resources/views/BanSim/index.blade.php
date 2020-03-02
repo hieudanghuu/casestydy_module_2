@@ -150,7 +150,7 @@
                     @foreach($posts as $post)
                         <div class="col-md-12 d-flex ftco-animate">
                             <div class="blog-entry align-self-stretch d-md-flex">
-                                <a href="blog-single.html" class="block-20">
+                                <a href="{{route('post.show', $post->id)}}" class="block-20">
                                     <img style='width: 250px ; height: auto' src='/minishop/images/{{$post->image}}'/>
                                 </a>
                                 <div class="text d-block pl-md-1">
@@ -186,32 +186,12 @@
                         <li><a href="{{route('search.name','au')}}">Au<span></span></a></li>
                     </ul>
                 </div>
-{{--                @foreach($posts as $post)--}}
-{{--                    <div class="sidebar-box ftco-animate">--}}
-{{--                        <h3 class="heading">最近のニュース</h3>--}}
-{{--                        <div class="block-21 mb-4 d-flex">--}}
-{{--                            <img style="height:50px" src='/minishop/images/{{$post->image}}'/>--}}
-{{--                        </div>--}}
-{{--                            <div class="text d-block ">--}}
-{{--                                <div class="meta mb-3">--}}
-{{--                                    <h3 class="heading-1 text-left-10"><a href="#">{{ $post->post_title }}</a></h3>--}}
-{{--                                    <div>--}}
-{{--                                        <a href="#"><span class="icon-calendar"></span> {{ $post->created_at }}</a>--}}
-{{--                                    </div>--}}
-{{--                                    <div><a href="#"><span class="icon-person"></span>Admin</a></div>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-
-{{--                    </div>--}}
-{{--                @endforeach--}}
             </div>
         </div>
     </div>
 </section>
 
-
 <!-- .section -->
-
 <section class="ftco-section bg-warning">
     <div class="container">
         <div class="row justify-content-center mb-3 pb-3">

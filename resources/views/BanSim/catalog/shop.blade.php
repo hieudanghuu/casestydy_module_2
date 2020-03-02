@@ -2,7 +2,7 @@
 @section('title','Shop')
 @section('main')
     <div class="hero-wrap hero-bread mt-xl-5 "
-         style="background-image: url('{{asset('minishop/images/bg.png')}}');height: 380px"></div>
+         style="background-image: url('{{asset('minishop/images/bg.png')}}');height: 550px"></div>
     <div class="col-12 mt-5">
         @if (Session::has('success'))
             <h1><p class="text-success text-center">
