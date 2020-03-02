@@ -3,7 +3,7 @@
         <div class="container-fluid">
             <div class="header-mobile-inner">
                 <a class="logo" href="{{route('index')}}">
-                    <img src="{{asset('cooladmin/images/icon/logo1.jpg')}}" alt="CoolAdmin"/>
+                    <img src="{{asset('minishop/cooladmin/images/icon/logo1.jpg')}}" alt="CoolAdmin"/>
                 </a>
                 <button class="hamburger hamburger--slider" type="button">
                             <span class="hamburger-box">
@@ -68,7 +68,7 @@
 <aside class="menu-sidebar d-none d-lg-block">
     <div class="logo">
         <a href="{{route('index')}}">
-            <img src="{{asset('cooladmin/images/icon/logo1.jpg')}}" alt="Cool Admin"/>
+            <img src="{{asset('minishop/cooladmin/images/icon/logo1.jpg')}}" alt="Cool Admin"/>
         </a>
     </div>
     <div class="menu-sidebar__content js-scrollbar1">

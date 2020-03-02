@@ -51,10 +51,6 @@ class SimController extends Controller
      */
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
-            'name' => 'bail|required|string|min:2|max:225',
-            'price' => 'bail|required|numeric',
-        ]);
         $sim = new Sim();
         $sim->sim_name = $request->input('name');
         $sim->sim_price = $request->input('price');

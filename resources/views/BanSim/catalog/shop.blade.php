@@ -22,7 +22,7 @@
                             <div class="col-sm-12 col-md-12 col-lg-4 ftco-animate d-flex">
                                 <div class="product d-flex flex-column">
                                     <a href="#" class="img-prod">
-                                        <img class="img-fluid " src="{{ 'data:image/jpeg;base64,'.$sim->sim_image }}"
+                                        <img class="img-fluid " src="{{ 'data:image/;base64,'.$sim->sim_image }}"
                                              style="height:220px" alt="Colorlib Template">
                                         <div class="overlay"></div>
                                     </a>

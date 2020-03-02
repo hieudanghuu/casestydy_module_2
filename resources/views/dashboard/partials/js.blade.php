@@ -1,31 +1,31 @@
 
 <!-- Jquery JS-->
-<script src="{{asset('cooladmin/vendor/jquery-3.2.1.min.js')}}"></script>
-<script src="{{asset('cooladmin/vendor/jquery-3.2.1.min.js')}}"></script>
+<script src="{{asset('minishop/cooladmin/vendor/jquery-3.2.1.min.js')}}"></script>
+<script src="{{asset('minishop/cooladmin/vendor/jquery-3.2.1.min.js')}}"></script>
 <!-- Bootstrap JS-->
-<script src="{{asset('cooladmin/vendor/bootstrap-4.1/popper.min.js')}}"></script>
-<script src="{{asset('cooladmin/vendor/bootstrap-4.1/bootstrap.min.js')}}"></script>
+<script src="{{asset('minishop/cooladmin/vendor/bootstrap-4.1/popper.min.js')}}"></script>
+<script src="{{asset('minishop/cooladmin/vendor/bootstrap-4.1/bootstrap.min.js')}}"></script>
 <!-- Vendor JS       -->
-<script src="{{asset('cooladmin/vendor/slick/slick.min.js')}}"></script>
-<script src="{{asset('cooladmin/vendor/wow/wow.min.js')}}"></script>
-<script src="{{asset('cooladmin/vendor/animsition/animsition.min.js')}}"></script>
-<script src="{{asset('cooladmin/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js')}}"></script>
-<script src="{{asset('cooladmin/vendor/counter-up/jquery.waypoints.min.js')}}"></script>
-<script src="{{asset('cooladmin/vendor/counter-up/jquery.counterup.min.js')}}"></script>
-<script src="{{asset('cooladmin/vendor/circle-progress/circle-progress.min.js')}}"></script>
-<script src="{{asset('cooladmin/vendor/perfect-scrollbar/perfect-scrollbar.js')}}"></script>
-<script src="{{asset('cooladmin/vendor/chartjs/Chart.bundle.min.js')}}"></script>
-<script src="{{asset('cooladmin/vendor/select2/select2.min.js')}}"></script>
+<script src="{{asset('minishop/cooladmin/vendor/slick/slick.min.js')}}"></script>
+<script src="{{asset('minishop/cooladmin/vendor/wow/wow.min.js')}}"></script>
+<script src="{{asset('minishop/cooladmin/vendor/animsition/animsition.min.js')}}"></script>
+<script src="{{asset('minishop/cooladmin/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js')}}"></script>
+<script src="{{asset('minishop/cooladmin/vendor/counter-up/jquery.waypoints.min.js')}}"></script>
+<script src="{{asset('minishop/cooladmin/vendor/counter-up/jquery.counterup.min.js')}}"></script>
+<script src="{{asset('vcooladmin/vendor/circle-progress/circle-progress.min.js')}}"></script>
+<script src="{{asset('minishop/cooladmin/vendor/perfect-scrollbar/perfect-scrollbar.js')}}"></script>
+<script src="{{asset('minishop/cooladmin/vendor/chartjs/Chart.bundle.min.js')}}"></script>
+<script src="{{asset('minishop/cooladmin/vendor/select2/select2.min.js')}}"></script>
 {{--<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>--}}
 <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.4.0/bootbox.min.js"></script>
 {{--<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>--}}
 @yield('jsHeader')
 <!-- full calendar requires moment along jquery which is included above -->
-<script src="{{asset('cooladmin/vendor/fullcalendar-3.10.0/lib/moment.min.js')}}"></script>
-<script src="{{asset('cooladmin/vendor/fullcalendar-3.10.0/fullcalendar.js')}}"></script>
+<script src="{{asset('minishop/cooladmin/vendor/fullcalendar-3.10.0/lib/moment.min.js')}}"></script>
+<script src="{{asset('minishop/cooladmin/vendor/fullcalendar-3.10.0/fullcalendar.js')}}"></script>
 <!-- Main JS-->
-<script src="{{asset('cooladmin/js/main.js')}}"></script>
+<script src="{{asset('minishop/cooladmin/js/main.js')}}"></script>
 
 <script type="text/javascript">
     $(function() {
