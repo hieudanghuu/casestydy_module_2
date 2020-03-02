@@ -67,6 +67,7 @@ class SimController extends Controller
         $sim->save();
 
         Session::flash('success', '新しい成功を生み出す');
+
         return redirect()->route('sim.index');
     }
 
