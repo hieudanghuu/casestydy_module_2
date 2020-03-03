@@ -21,19 +21,17 @@
                             </form>
 
                             <div class="header-button">
-                                <div class="noti-wrap">
-                                    <li class="nav-item cta cta-colored">
-                                        <a href="{{route('cart')}}" class="nav-link">
+                                <a href="{{route('cart')}}" class="nav-link">
                                             <span class="icon-shopping_cart btn-warning  ">
                                             </span>[{{Cart::count()}}]
-                                        </a>
-                                    </li>
-                                </div>
+                                </a>
                                 <div class="account-wrap">
-                                    <div class="account-item clearfix js-item-menu">
+                                    <div class="account-item clearfix js-item-menu ">
                                         <div class="image">
-                                            <img src="{{asset('minishop/cooladmin/images/icon/3.jpg')}}" alt="{{ Auth::user()->name}}"/>
+                                            <img src="{{asset('minishop/cooladmin/images/icon/3.jpg')}}"
+                                                 alt="{{ Auth::user()->name}}"/>
                                         </div>
+
                                         <div class="content">
                                             <a class="js-acc-btn" href="#">{{ Auth::user()->name}}</a>
                                         </div>
@@ -80,7 +78,7 @@
                                 <div class="overview-wrap">
                                     <h2 class="title-1">一般化</h2>
                                     <a href="{{route('sim.create')}}" class="au-btn au-btn-icon au-btn--blue">
-                                        <i class="zmdi zmdi-plus"></i>add item</a>
+                                        <i class="zmdi zmdi-plus"></i>新規作成</a>
                                 </div>
                             </div>
                         </div>
@@ -129,7 +127,7 @@
                                                 <i class="zmdi zmdi-calendar-note"></i>
                                             </div>
                                             <div class="text">
-                                                <h2>20</h2>
+                                                <h2>{{$time}}</h2>
                                                 <span>その日を売った</span>
                                             </div>
                                         </div>
@@ -212,7 +210,6 @@
                 <!-- END MAIN CONTENT-->
                 <!-- END PAGE CONTAINER-->
             </div>
-
         </div>
     </div>
 @endsection

@@ -10,26 +10,31 @@ use App\Sim;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Carbon\Carbon;
 
 class DashboardController extends Controller
 {
     public function index()
     {
-
         $sims = Sim::all();
         $categorys = Category::all();
         $orders = Order::all();
         $users = User::all();
         $product_order = Product_Order::all();
-        $total=0;
+        $total = 0;
         foreach ($orders as $order) {
             if ($order->status == 0) {
-                    $a=$order->totals;
-                    $number = join(explode(',', $a));
+                $a = $order->totals;
+                $number = join(explode(',', $a));
                 $total += (float)($number);
             }
         }
-        return view('index', compact('sims', 'categorys', 'orders', 'users', 'total', 'product_order'));
+        foreach ($orders as $order) {
+            if ($order->created_at->isToday() == true) {
+                $time = $order->count();
+            }
+        }
+        return view('index', compact('sims', 'categorys', 'orders', 'users', 'total', 'product_order','time'));
     }
 
     public function table()
@@ -96,8 +101,11 @@ class DashboardController extends Controller
     }
 
 
-    public function table3Delete()
+    public function confirm($id)
     {
-
+        $oder = Order::find($id);
+        $oder->status = 0;
+        $oder->save();
+        return redirect()->route('dashboard');
     }
 }

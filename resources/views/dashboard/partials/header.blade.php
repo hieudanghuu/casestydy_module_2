@@ -13,7 +13,7 @@
             </div>
         </div>
     </div>
-    <nav class="navbar-mobile">
+    <nav class="navbar-mobile bg-dark ">
         <div class="container-fluid">
             <ul class="navbar-mobile__list list-unstyled">
                 <li>
@@ -68,10 +68,10 @@
 <aside class="menu-sidebar d-none d-lg-block">
     <div class="logo">
         <a href="{{route('index')}}">
-            <img src="{{asset('minishop/cooladmin/images/icon/logo1.jpg')}}" alt="Cool Admin"/>
+            <img src="{{asset('minishop/cooladmin/images/icon/logo1.jpg')}}"style="height:75px"alt="CTS Admin"/>
         </a>
     </div>
-    <div class="menu-sidebar__content js-scrollbar1">
+    <div class="menu-sidebar__content js-scrollbar1 bg-dark" >
         <nav class="navbar-sidebar">
             <ul class="list-unstyled navbar__list">
                 <li>

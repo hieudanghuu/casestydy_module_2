@@ -46,6 +46,7 @@ post.save = function(){
                     $('#addEditUser').modal('hide');
                     $('#frmAddEdit')[0].reset();
                     post.drawTable();
+                    $('.modal-backdrop').remove();
                 }
             });
         }else{

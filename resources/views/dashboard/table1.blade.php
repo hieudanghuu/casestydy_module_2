@@ -23,12 +23,12 @@
                             </form>
                             <div class="header-button">
                                 <div class="noti-wrap">
-                                    <li class="nav-item cta cta-colored">
+
                                         <a href="{{route('cart')}}" class="nav-link">
                                             <span class="icon-shopping_cart btn-warning  ">
                                             </span>[{{Cart::count()}}]
                                         </a>
-                                    </li>
+
                                 </div>
                                 <div class="account-wrap">
                                     <div class="account-item clearfix js-item-menu">

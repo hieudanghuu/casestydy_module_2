@@ -72,9 +72,10 @@ Route::get('/dashboard/table','DashboardController@table')->name('dashboard.tabl
 Route::get('/dashboard/table2','DashboardController@table2')->name('dashboard.table2')->middleware('admin');;
 Route::get('/dashboard/table3','DashboardController@table3')->name('dashboard.table3')->middleware('admin');;
 Route::get('/dashboard/table4','DashboardController@table4')->name('dashboard.table4')->middleware('admin');
-Route::get('/dashboard/table3/edit{id}','DashboardController@table3Edit')->name('dashboard.table3Edit')->middleware('admin');;
-Route::post('/dashboard/table3/update','DashboardController@table3Update')->name('dashboard.table3Update')->middleware('admin');;
 
+Route::get('/dashboard/table3/edit{id}','DashboardController@table3Edit')->name('dashboard.table3Edit')->middleware('admin');
+Route::post('/dashboard/table3/update','DashboardController@table3Update')->name('dashboard.table3Update')->middleware('admin');
+Route::get('/dashboard/table3/Confirm/{id}','DashboardController@confirm')->name('dashboard.table.confirm')->middleware('admin');;
 
 
 Route::get('/dashboard/table/destroy/{id}','OrderController@destroy')->name('dashboard.destroy.order')->middleware('admin');

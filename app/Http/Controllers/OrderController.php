@@ -52,7 +52,13 @@ class OrderController extends Controller
         $order = Order::findOrFail($id);
         $product_orders = Product_Order::all();
         $users = User::all();
-        return view('dashboard.show_all', compact('order', 'product_orders', 'users'));
+        foreach ($users as $user){
+            if ($user->id == $order->user_id){}
+        }
+        foreach ($product_orders as $product_order){
+            if($product_order->order_id == $order->order_id){}
+        }
+        return view('dashboard.show_all', compact('order', 'product_order', 'user'));
     }
 
     /**

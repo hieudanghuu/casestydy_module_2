@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
+
     @include('BanSim.catalog.partials.head')
 </head>
 <body>

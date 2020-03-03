@@ -23,12 +23,12 @@
                             </form>
                             <div class="header-button">
                                 <div class="noti-wrap">
-                                    <li class="nav-item cta cta-colored">
+
                                         <a href="{{route('cart')}}" class="nav-link">
                                             <span class="icon-shopping_cart btn-warning  ">
                                             </span>[{{Cart::count()}}]
                                         </a>
-                                    </li>
+
                                 </div>
                                 <div class="account-wrap">
                                     <div class="account-item clearfix js-item-menu">
@@ -57,8 +57,8 @@
                                     <div class="col-md-12">
                                         <!-- DATA TABLE-->
                                         <div class="table-responsive m-b-40">
-                                            <div class="col-12"><h1>
-                                                    未処理の注文</h1></div>
+                                            <div class="col-12">
+                                                <h1>未処理の注文</h1></div>
                                             <table class="table table-borderless table-data3 mt-5">
                                                 <thead class="table-light">
                                                 <tr>
@@ -139,7 +139,7 @@
                                                 </thead>
                                                 <tbody>
                                                 @foreach($orders as $order)
-                                                    @if($order->status == 2)
+                                                    @if($order->status == 0)
                                                         <tr>
                                                             <td>{{$order->order_id}}</td>
                                                             <td>
@@ -181,14 +181,6 @@
                                             </table>
                                         </div>
                                         <!-- END DATA TABLE-->
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="copyright">
-                                            <p>Copyright © 2018 Colorlib. All rights reserved. Template by <a
-                                                    href="https://colorlib.com">Colorlib</a>.</p>
-                                        </div>
                                     </div>
                                 </div>
                             </div>

@@ -34,3 +34,11 @@
 
 <!-- Main CSS-->
 <link href="{{asset('minishop/cooladmin/css/theme.css')}}" rel="stylesheet" media="all">
+<style>
+    .navbar-sidebar .navbar__list li a {
+        display: block;
+        color: #f8f9fa;
+        font-size: 16px;
+        padding: 15px 0;
+    }
+</style>

@@ -23,12 +23,12 @@
                             </form>
                             <div class="header-button">
                                 <div class="noti-wrap">
-                                    <li class="nav-item cta cta-colored">
+
                                         <a href="{{route('cart')}}" class="nav-link">
                                             <span class="icon-shopping_cart btn-warning  ">
                                             </span>[{{Cart::count()}}]
                                         </a>
-                                    </li>
+
                                 </div>
                                 <div class="account-wrap">
                                     <div class="account-item clearfix js-item-menu">
@@ -54,12 +54,12 @@
                             <div class="col-md-12">
                                 <div class="col-12 mt-5">
                                     <div class="row">
-                                        <div class="col-12"><h1>製品リスト</h1>
+                                        <div class="col-12"><h1>投稿リスト</h1>
                                         </div>
                                         <div class="col-12 mb-3">
                                             <a href="javascript:void(0);" class="btn btn-info" data-toggle="modal"
                                                data-target="#addEditUser"
-                                               onclick="post.openAddEditUser()">Create</a>
+                                               onclick="post.openAddEditUser()">新規作成</a>
                                         </div>
                                         <br>
                                         <table class="table table-striped">
