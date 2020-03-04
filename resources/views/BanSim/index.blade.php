@@ -211,7 +211,7 @@
                             <div class="product d-flex flex-column">
                                 <a href="#" class="img-prod">
                                     <img class="img-fluid" src="{{ 'data:image/jpeg;base64,'.$sim->sim_image }}"
-                                         style="height:180px" alt="Colorlib Template">
+                                          alt="Colorlib Template">
                                     <div class="overlay"></div>
                                 </a>
                                 <div class="text py-3 pb-4 px-3">

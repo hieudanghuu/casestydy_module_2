@@ -9,7 +9,7 @@
         <!-- PAGE CONTAINER-->
         <div class="page-container">
             <!-- HEADER DESKTOP-->
-            <header class="header-desktop">
+            <header class="header-desktop bg-warning">
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
                         <div class="header-wrap">
@@ -209,6 +209,19 @@
                 </div>
                 <!-- END MAIN CONTENT-->
                 <!-- END PAGE CONTAINER-->
+                <br><br><br><br><br><br>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="copyright">
+                            <p>プレステージ-品質-耐久性 </p>
+                            <p><a
+                                    href="{{route('index')}}">
+                                    <img src="{{asset('minishop/cooladmin/images/icon/logo1.jpg')}}"style="height:75px"alt="CTS Admin"/>
+                                </a></p>
+                            <p>7-45-3グリーンヒルハヶ崎304 Matsudo, Chiba</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

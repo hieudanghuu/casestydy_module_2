@@ -23,10 +23,10 @@
                             </form>
                             <div class="header-button">
                                 <div class="noti-wrap">
-                                        <a href="{{route('cart')}}" class="nav-link">
+                                    <a href="{{route('cart')}}" class="nav-link">
                                             <span class="icon-shopping_cart btn-warning  ">
                                             </span>[{{Cart::count()}}]
-                                        </a>
+                                    </a>
                                 </div>
                                 <div class="account-wrap">
                                     <div class="account-item clearfix js-item-menu">
@@ -81,12 +81,7 @@
                                                 </td>
                                                 <td>{{$order->user_name}}</td>
                                                 <td>
-{{--                                                    @foreach($users as $user)--}}
-
-{{--                                                        @if($user->id = $order->user_id)--}}
-                                                            <span class="block-email">{{$user->email}}</span>
-{{--                                                        @endif--}}
-{{--                                                    @endforeach--}}
+                                                    <span class="block-email">{{$user->email}}</span>
                                                 </td>
                                                 <td>{{$order->address}}</td>
                                                 <td class="desc">{{$order->phone}}</td>
@@ -111,35 +106,57 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                                <tr class="tr-shadow">
-                                                    <td>
-                                                        {{$product_order->id}}
-                                                    </td>
-                                                    <td>
-                                                        <img src="{{ 'data:image/jpeg;base64,'.$product_order->image }}"
-                                                             alt="image"
-                                                             style="max-width: 150px">
-                                                    </td>
-                                                    <td>{{$product_order->product}}</td>
-                                                    <td>{{$product_order->prices}}</td>
-                                                    <td>{{$order->address}}</td>
-                                                    <td>{{$product_order->quantity}}</td>
-                                                </tr>
+                                            @foreach($product_order1 as $product_order)
+                                            <tr class="tr-shadow">
+                                                <td>
+                                                    {{$product_order->id}}
+                                                </td>
+                                                <td>
+                                                    <img src="{{ 'data:image/jpeg;base64,'.$product_order->image }}"
+                                                         alt="image"
+                                                         style="max-width: 150px">
+                                                </td>
+                                                <td>{{$product_order->product}}</td>
+                                                <td>{{$product_order->prices}}</td>
+                                                <td>{{$order->address}}</td>
+                                                <td>{{$product_order->quantity}}</td>
+                                            </tr>
+                                                @endforeach
                                             </tbody>
                                         </table>
                                     </div>
 
-                                    <a href="{{route('dashboard.table.confirm',$order->order_id)}} " class="btn btn-outline-success">
+                                    <div  class="btn btn-warning">総額 :
+                                        <input type="text" style="color-interpolation-filters: auto" value="{{$order->totals . "  円"}}">
+                                    </div>
+
+                                    <a href="{{route('dashboard.table.confirm',$order->order_id)}} "
+                                       class="btn btn-outline-success">
                                         配達確認</a>
                                 </div>
                                 <!-- END DATA TABLE -->
                             </div>
                         </div>
+
+
+                    </div>
+                </div>
+
+            </div>
+            <br><br><br><br><br><br>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="copyright">
+                        <p>プレステージ-品質-耐久性 </p>
+                        <p><a
+                                href="{{route('index')}}">
+                                <img src="{{asset('minishop/cooladmin/images/icon/logo1.jpg')}}"style="height:75px"alt="CTS Admin"/>
+                            </a></p>
+                        <p>7-45-3グリーンヒルハヶ崎304 Matsudo, Chiba</p>
                     </div>
                 </div>
             </div>
         </div>
-
     </div>
 @endsection
 

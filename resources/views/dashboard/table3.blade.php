@@ -24,16 +24,17 @@
                             <div class="header-button">
                                 <div class="noti-wrap">
 
-                                        <a href="{{route('cart')}}" class="nav-link">
+                                    <a href="{{route('cart')}}" class="nav-link">
                                             <span class="icon-shopping_cart btn-warning  ">
                                             </span>[{{Cart::count()}}]
-                                        </a>
+                                    </a>
 
                                 </div>
                                 <div class="account-wrap">
                                     <div class="account-item clearfix js-item-menu">
                                         <div class="image">
-                                            <img src="{{asset('minishop/cooladmin/images/icon/3.jpg')}}" alt="John Doe"/>
+                                            <img src="{{asset('minishop/cooladmin/images/icon/3.jpg')}}"
+                                                 alt="John Doe"/>
                                         </div>
                                         <div class="content">
                                             <a class="js-acc-btn" href="#">{{ Auth::user()->name}}</a>
@@ -65,9 +66,6 @@
                                                     <th>ID</th>
                                                     <th>アバター画像</th>
                                                     <th>名前</th>
-                                                    <th>製品名</th>
-                                                    <th>量</th>
-                                                    <th>価格</th>
                                                     <th>総額</th>
                                                     <th>電話</th>
                                                     <th>住所</th>
@@ -89,14 +87,10 @@
                                                                     style="max-width: 50px">
                                                             </td>
                                                             <td>{{$order->user_name}}</td>
-                                                            <td>{{$order->order_product}}</td>
-                                                            <td>{{$order->quantity}}</td>
-                                                            <td>{{$order->order_prices}}<i class="fa fa-yen-sign"></i>
-                                                            </td>
                                                             <td>{{$order->totals}}<i class="fa fa-yen-sign"></i></td>
                                                             <td>{{$order->phone}}</td>
                                                             <td>{{$order->address}}</td>
-                                                            <td>{{$order->status}}</td>
+                                                            <td><a class="btn btn-info text-white">未確認</a></td>
                                                             <td>{{$order->created_at}}</td>
                                                             <td>
                                                                 <div class="row">
@@ -127,8 +121,6 @@
                                                     <th>ID</th>
                                                     <th>アバター画像</th>
                                                     <th>名前</th>
-                                                    <th>製品名</th>
-                                                    <th>量</th>
                                                     <th>総額</th>
                                                     <th>電話</th>
                                                     <th>住所</th>
@@ -149,12 +141,10 @@
                                                                     style="max-width: 50px">
                                                             </td>
                                                             <td>{{$order->user_name}}</td>
-                                                            <td>{{$order->order_product}}</td>
-                                                            <td>{{$order->quantity}}<i class="fa fa-yen-sign"></i></td>
                                                             <td>{{$order->totals}}<i class="fa fa-yen-sign"></i></td>
                                                             <td>{{$order->phone}}</td>
                                                             <td>{{$order->address}}</td>
-                                                            <td>{{$order->status}}</td>
+                                                            <td><a class="btn btn-warning text-white">確認しました</a></td>
                                                             <td>{{$order->created_at}}</td>
                                                             <td>
                                                                 <div class="row">
@@ -183,6 +173,20 @@
                                         <!-- END DATA TABLE-->
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br><br><br><br><br><br>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="copyright">
+                                <p>プレステージ-品質-耐久性 </p>
+                                <p><a
+                                        href="{{route('index')}}">
+                                        <img src="{{asset('minishop/cooladmin/images/icon/logo1.jpg')}}"
+                                             style="height:75px" alt="CTS Admin"/>
+                                    </a></p>
+                                <p>7-45-3グリーンヒルハヶ崎304 Matsudo, Chiba</p>
                             </div>
                         </div>
                     </div>

@@ -51,14 +51,17 @@ class OrderController extends Controller
     {
         $order = Order::findOrFail($id);
         $product_orders = Product_Order::all();
+
         $users = User::all();
         foreach ($users as $user){
             if ($user->id == $order->user_id){}
         }
         foreach ($product_orders as $product_order){
-            if($product_order->order_id == $order->order_id){}
+            if($product_order->order_id == $order->order_id){
+                $product_order1[] = $product_order;
+            }
         }
-        return view('dashboard.show_all', compact('order', 'product_order', 'user'));
+        return view('dashboard.show_all', compact('order', 'product_order1', 'user'));
     }
 
     /**

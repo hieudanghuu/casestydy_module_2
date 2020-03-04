@@ -24,16 +24,17 @@
                             <div class="header-button">
                                 <div class="noti-wrap">
 
-                                        <a href="{{route('cart')}}" class="nav-link">
+                                    <a href="{{route('cart')}}" class="nav-link">
                                             <span class="icon-shopping_cart btn-warning  ">
                                             </span>[{{Cart::count()}}]
-                                        </a>
+                                    </a>
 
                                 </div>
                                 <div class="account-wrap">
                                     <div class="account-item clearfix js-item-menu">
                                         <div class="image">
-                                            <img src="{{asset('minishop/cooladmin/images/icon/3.jpg')}}" alt="John Doe"/>
+                                            <img src="{{asset('minishop/cooladmin/images/icon/3.jpg')}}"
+                                                 alt="John Doe"/>
                                         </div>
                                         <div class="content">
                                             <a class="js-acc-btn" href="#">{{ Auth::user()->name}}</a>
@@ -57,7 +58,8 @@
                                     <div class="row">
                                         <div class="col-12"><h1>製品リスト</h1></div>
                                         <br>
-                                        <a class="btn mb-5 bg-success mt-5" href="{{ route('sim.create') }}">新しい追加</a><br>
+                                        <a class="btn mb-5 bg-success mt-5"
+                                           href="{{ route('sim.create') }}">新しい追加</a><br>
                                         <div class="col-12">
                                             @if (Session::has('success'))
                                                 <p class="text-success">
@@ -77,7 +79,7 @@
                                                 <th></th>
                                             </tr>
                                             </thead>
-                                            <tbody id = "sims">
+                                            <tbody id="sims">
                                             @if(count($sims) == 0)
                                                 <tr>
                                                     <td colspan="4">Không có dữ liệu</td>
@@ -127,21 +129,26 @@
                                         {{ $sims->links() }}
                                     </div>
                                 </div>
-
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="copyright">
-                                    <p>Copyright © 2018 Colorlib. All rights reserved. Template by <a
-                                            href="https://colorlib.com">Colorlib</a>.</p>
-                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+            <br><br><br><br><br><br>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="copyright">
+                        <p>プレステージ-品質-耐久性 </p>
+                        <p><a
+                                href="{{route('index')}}">
+                                <img src="{{asset('minishop/cooladmin/images/icon/logo1.jpg')}}" style="height:75px"
+                                     alt="CTS Admin"/>
+                            </a></p>
+                        <p>7-45-3グリーンヒルハヶ崎304 Matsudo, Chiba</p>
+                    </div>
+                </div>
             </div>
-    </div>
+        </div>
     </div>
 @endsection
 

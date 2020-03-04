@@ -32,7 +32,7 @@ class DashboardController extends Controller
         foreach ($orders as $order) {
             if ($order->created_at->isToday() == true) {
                 $time = $order->count();
-            }
+            }else {$time = 0;}
         }
         return view('index', compact('sims', 'categorys', 'orders', 'users', 'total', 'product_order','time'));
     }
@@ -57,8 +57,9 @@ class DashboardController extends Controller
     public function table3()
     {
         $orders = Order::all();
+        $product_orders = Product_Order::all();
 
-        return view('dashboard.table3', compact('orders'));
+        return view('dashboard.table3', compact('orders', 'product_orders'));
 
     }
 
@@ -73,7 +74,14 @@ class DashboardController extends Controller
     public function table3Edit(Order $order, $id)
     {
         $order = Order::findOrFail($id);
-        return view('dashboard.table3Edit', compact('order'));
+        $product_orders = Product_Order::all();
+
+        foreach ($product_orders as $product_order){
+            if($product_order->order_id == $order->order_id){
+                $product_order1[] = $product_order;
+            }
+        }
+        return view('dashboard.table3Edit', compact('order', 'product_order1'));
     }
 
 
@@ -83,9 +91,6 @@ class DashboardController extends Controller
         $order = Order::findOrFail($id);
 
         $order->user_name = $request->input('user_name');
-        $order->order_prices = $request->input('order_prices');
-        $order->order_product = $request->input('order_product');
-        $order->quantity = $request->input('quantity');
         $order->totals = $request->input('totals');
         $order->phone = $request->input('phone');
         $order->address = $request->input('address');
@@ -94,7 +99,21 @@ class DashboardController extends Controller
             $order->order_image = $image;
         }
         $order->status = $request->input('status');
-        $order->user_id = $request->input('user_id');;
+        $order->user_id = $request->input('user_id');
+
+        $product_orders = Product_Order::all();
+        foreach ($product_orders as $product_order) {
+            if ($product_order->user_id == $order->order_id) {
+                $product_order->prices = $request->input('prices');
+                $product_order->product = $request->input('product');
+                $product_order->quantity = $request->input('quantity');
+                if ($request->hasFile('image_product')) {
+                    $image = base64_encode(file_get_contents($request->file('image_product')));
+                    $product_order->image = $image;
+                }
+            }
+        }
+        $product_order->save();
         $order->save();
         Session::flash('success', '新しい成功を生み出す');
         return redirect()->route('dashboard.table3');
