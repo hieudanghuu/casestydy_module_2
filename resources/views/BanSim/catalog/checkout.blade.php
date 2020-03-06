@@ -177,7 +177,8 @@
                                             </div>
                                         </div>
                                         <p>
-                                            <button type="submit" class="btn btn-primary py-3 px-4"><a
+                                            <button type="submit" class="btn btn-primary py-3 px-4" onclick=" return confirm('\n'+
+'注文が成功すると、3〜5日で商品を受け取ります' )"><a
                                                     href="{{route('destroy.cart',$cart->rowId)}}"></a>注文する
                                             </button>
                                         </p>

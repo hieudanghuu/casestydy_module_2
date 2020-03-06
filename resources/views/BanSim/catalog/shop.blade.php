@@ -7,7 +7,7 @@
         @if (Session::has('success'))
             <h1><p class="text-success text-center">
                     <i class="fa fa-check" aria-hidden="true"></i>{{ Session::get('success') }}
-                    <input type="image" src="{{asset('minishop/images/icon.png')}}" style="height:60px">
+                    <input type='image' src="{{asset('minishop/images/icon.png')}}" style="height:60px">
                 </p>
             </h1>
         @endif
@@ -38,24 +38,28 @@
                                             <p class="price"><span>{{$sim->sim_price}} 円</span><i
                                                     class="fas fa-yen-sign"></i></p>
                                         </div>
-                                        <p class="bottom-area d-flex px-3">
-                                            <a href="#"
-                                               class="add-to-cart text-center py-2 mr-1"><span>カートに追加</span></a>
-                                            <a href="{{route('save.cart',$sim->sim_id)}}"
-                                               class="buy-now text-center py-2">買う<span><i
-                                                        class="ion-ios-cart ml-1"></i></span></a>
-                                        </p>
-                                        <span>
+                                        <form action="{{route('save.cart',$sim->sim_id)}}" method="get">
+                                            <p class="bottom-area d-flex px-3">
+                                                <a href="{{route('shop')}}"
+                                                   class="add-to-cart text-center py-2 mr-1"><span>カートに追加</span></a>
+                                                <button  class=" buy-now d-flex text-center py-2 mr-1 col-5 "><a >買う<span><i
+                                                                class="ion-ios-cart ml-1"></i></span></a></button>
+                                            </p>
+
+                                            <span>
 
                                             <div class="col-8 input-group">
                                                 <div class="input-group-append">
                                                     <span class="input-group-text">量</span>
                                                 </div>
+
                                                 <input type="number" name="qty"
                                                        class="quantity form-control input-number"
                                                        value="1" min="1" max="100">
+
                                             </div>
                                             </span>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -66,6 +70,7 @@
                                     </div>
                                 </div>
                             </div>
+
                         @endforeach
                     </div>
                 </div>
@@ -80,7 +85,7 @@
                                         <div class="text-danger" role="tab" id="headingOne">
                                             <h4 class="panel-title">
                                                 <a class="collapsed"
-                                                    href="{{route('search.name','docomo')}}">Docomo
+                                                   href="{{route('search.name','docomo')}}">Docomo
                                                 </a>
                                             </h4>
                                         </div>
@@ -89,7 +94,7 @@
                                         <div class="text-primary" role="tab" id="headingTwo">
                                             <h4 class="panel-title">
                                                 <a class="collapsed" href="{{route('search.name','softbank')}}"
-                                                   >Softbank
+                                                >Softbank
                                                 </a>
                                             </h4>
                                         </div>
@@ -99,7 +104,7 @@
                                             <h4 class="panel-title">
                                                 <a class="collapsed"
                                                    href="{{route('search.name','au')}}"
-                                                   >Au
+                                                >Au
                                                 </a>
                                             </h4>
                                         </div>
@@ -118,12 +123,13 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label for="guests">からの価格:</label>
-                                                <i class="icon icon-arrow-down3"></i>
-                                                <input type="number" class="form-control" name="value1" required>
+                                            <i class="icon icon-arrow-down3"></i>
+                                            <input type="number" class="form-control" name="value1" required>
                                             <div class="col-12">
                                                 @if (Session::has('danger'))
                                                     <p class="text-danger">
-                                                        <i class="fa fa-check" aria-hidden="true"></i>{{ Session::get('danger') }}
+                                                        <i class="fa fa-check"
+                                                           aria-hidden="true"></i>{{ Session::get('danger') }}
                                                     </p>
                                                 @endif
                                             </div>
@@ -132,8 +138,8 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label for="guests">マデ:</label>
-                                                <i class="icon icon-arrow-down3"></i>
-                                                <input type="number" class="form-control" name="value2" required>
+                                            <i class="icon icon-arrow-down3"></i>
+                                            <input type="number" class="form-control" name="value2" required>
                                         </div>
                                     </div>
                                 </div>

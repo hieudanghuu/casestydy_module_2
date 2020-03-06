@@ -32,7 +32,7 @@
             <div class="container-fluid p-0">
                 <div class="row d-flex no-gutters slider-text align-items-center justify-content-end"
                      data-scrollax-parent="true">
-                    <img class="one-third order-md-last img-fluid" src="{{asset('/minishop/images/sim9.png')}}" alt="">
+                    <img class="one-third order-md-last img-fluid" src="{{asset('/minishop/images/brsim2.png')}}" style="height: 1000px">
                     <div class="one-forth d-flex align-items-center ftco-animate"
                          data-scrollax=" properties: { translateY: '70%' }">
                         <div class="text">
@@ -55,7 +55,7 @@
             <div class="container-fluid p-0">
                 <div class="row d-flex no-gutters slider-text align-items-center justify-content-end"
                      data-scrollax-parent="true">
-                    <img class="one-third order-md-last img-fluid" src="{{asset('/minishop/images/sim4.png')}}" alt="">
+                    <img class="one-third order-md-last img-fluid" src="{{asset('/minishop/images/brsim5.png')}}" alt="">
                     <div class="one-forth d-flex align-items-center ftco-animate"
                          data-scrollax=" properties: { translateY: '70%' }">
                         <div class="text">
@@ -78,7 +78,7 @@
             <div class="container-fluid p-0">
                 <div class="row d-flex no-gutters slider-text align-items-center justify-content-end"
                      data-scrollax-parent="true">
-                    <img class="one-third order-md-last img-fluid" src="{{asset('/minishop/images/sim5.jpg')}}" alt="">
+                    <img class="one-third order-md-last img-fluid" src="{{asset('/minishop/images/sim9.png')}}" alt="">
                     <div class="one-forth d-flex align-items-center ftco-animate"
                          data-scrollax=" properties: { translateY: '70%' }">
                         <div class="text">
@@ -231,7 +231,6 @@
                                         <button  class=" buy-now d-flex text-center py-2 mr-1 col-5 "><a >買う<span><i
                                                     class="ion-ios-cart ml-1"></i></span></a></button>
                                     </p>
-
                                         <div class="col-8 input-group">
                                             <div class="input-group-append">
                                                     <span class="input-group-text btn-danger">量</span>
@@ -240,7 +239,6 @@
                                                    class=" btn form-control  input-group"
                                                   value="1" min="1" max="100">
                                         </div>
-
                                     </form>
                                 </div>
                             </div>
