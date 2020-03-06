@@ -128,7 +128,7 @@
                                             </div>
                                             <div class="text">
                                                 <h2>{{$time}}</h2>
-                                                <span>その日を売った</span>
+                                                <span>その月を売った</span>
                                             </div>
                                         </div>
                                         <div class="overview-chart">

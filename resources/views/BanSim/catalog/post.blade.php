@@ -23,7 +23,7 @@
                                             </div>
                                             <h3 class="heading"><a href="#">新製品に関するニュース</a></h3>
                                             <p>{{ $post->post_title }}</p>
-                                            <p><a href="blog-single.html" class="btn btn-primary py-2 px-3">詳細</a></p>
+                                            <p><a href="{{ route('post.show', $post->id) }}" class="btn btn-primary py-2 px-3">詳細</a></p>
                                         </div>
                                     </div>
                                 </div>

@@ -16,6 +16,7 @@
 <script src="{{asset('minishop/js/google-map.js')}}"></script>
 <script src="{{asset('minishop/js/main.js')}}"></script>
 <script src="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"></script>
+@yield('scripts')
 {{--<script>--}}
 {{--    $(document).ready(function () {--}}
 {{--        $("#btnSearch").click(function () {--}}

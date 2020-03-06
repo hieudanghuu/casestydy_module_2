@@ -34,7 +34,7 @@
                 aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="oi oi-menu"></span> Menu
         </button>
-        <div class="collapse navbar-collapse" id="dataSearch">
+        <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active"><a href="{{route('index')}}" class="nav-link">
                         ホームページ</a></li>
@@ -107,13 +107,13 @@
                 @endguest
                 <li class="nav-item cta cta-colored"><a href="{{route('cart')}}" class="nav-link"><span
                             class="icon-shopping-cart btn-warning "></span>[{{Cart::count()}}]</a></li>
-                <form action="{{route('search.sim')}}" class="  mt-2" method="get">
+{{--                <form action="{{route('search.sim')}}" class="  mt-2" method="get">--}}
 
-                    <div class="sb hidden-sm-down flex-fill mr-5 mt-2">
-                        <input placeholder="探している" name="key" value="" class="sb__input">
-                        <button class="btn btn-primary" type="submit"><i class="fa fa-search"></i>見つける</button>
-                    </div>
-                </form>
+{{--                    <div class="sb hidden-sm-down flex-fill mr-5 mt-2">--}}
+{{--                        <input placeholder="探している" name="key" value="" class="sb__input">--}}
+{{--                        <button class="btn btn-primary" type="submit"><i class="fa fa-search"></i>見つける</button>--}}
+{{--                    </div>--}}
+{{--                </form>--}}
             </ul>
         </div>
     </div>

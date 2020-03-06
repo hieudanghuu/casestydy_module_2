@@ -3,7 +3,7 @@
         <div class="container-fluid">
             <div class="header-mobile-inner">
                 <a class="logo" href="{{route('index')}}">
-                    <img src="{{asset('minishop/cooladmin/images/icon/logo1.jpg')}}" alt="CoolAdmin"/>
+                    <img src="{{asset('minishop/cooladmin/images/icon/logo1.jpg')}}" style="height: 150px" alt="CoolAdmin"/>
                 </a>
                 <button class="hamburger hamburger--slider" type="button">
                             <span class="hamburger-box">

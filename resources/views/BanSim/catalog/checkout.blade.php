@@ -109,8 +109,8 @@
                                                             <input type="hidden" value="{{ $cart->rowId }}" name="rowId">
                                                             <td class="quantity">
                                                                 <div class="input-group mb-3">
-                                                                    <input type="text" name="qty"
-                                                                           class="quantity form-control input-number"
+                                                                    <input type="number" name="qty"
+                                                                           class="form-control "
                                                                            value="{{$cart->qty}}" min="1" max="100">
                                                                 </div>
                                                             </td>

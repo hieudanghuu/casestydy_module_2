@@ -29,6 +29,7 @@ class CartController extends Controller
         $this->sim = $sim;
         $this->category = $category;
     }
+
     public function index()
     {
         //
@@ -64,16 +65,17 @@ class CartController extends Controller
      */
 
 
-    public function save(Request $request,$id)
+    public function save(Request $request, $id)
     {
         $sim = Sim::findOrFail($id);
         $sims = Cart::content();
+        $qty = $request->qty;
         foreach ($sims as $pro)
-            if($sim->sim_id == $pro->id ){
-                return redirect()->back()->with('alert','Lỗi: "Sản phẩm đã tồn tại trong giỏ hàng!"');
+            if ($sim->sim_id == $pro->id) {
+                return redirect()->back()->with('alert', 'Lỗi: "Sản phẩm đã tồn tại trong giỏ hàng!"');
                 //Err không hiện alert.
             }
-        Cart::add(['id' => $sim->sim_id, 'name' => $sim->sim_name, 'qty' => 1,
+        Cart::add(['id' => $sim->sim_id, 'name' => $sim->sim_name, 'qty' => $qty,
             'weight' => 2, 'price' => $sim->sim_price,
             'options' => ['image' => $sim->sim_image]]);
         return redirect()->back();
@@ -82,6 +84,7 @@ class CartController extends Controller
     public function show()
     {
         $sim = Cart::content();
+
         return view('BanSim.catalog.cart', compact('sim', 'id'));
     }
 
@@ -104,12 +107,27 @@ class CartController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, $id, $qty, $rowId)
     {
-        $rowId = $request->rowId_cart;
-        $qty = $request->qty;
-        Cart::update($rowId,$qty);
-        return redirect()->back();
+        if ($request->ajax()) {
+            $sim = sim::findOrFail($id);
+            if ($qty >= 1) {
+                Cart::update($rowId, $qty);
+//                return redirect()->route('checkout');
+                return response()->json(
+                    [
+                        'success' => 'Added to cart'
+                    ],
+                    200
+                );
+            } else {
+                return response()->json(
+                    [
+                        'qtyErr' => 'Quantity must greater than 1'
+                    ]
+                );
+            }
+        }
     }
 
     /**
@@ -120,7 +138,7 @@ class CartController extends Controller
      */
     public function destroy($rowId)
     {
-        Cart::update($rowId,0);
+        Cart::update($rowId, 0);
         return redirect()->back();
     }
 }

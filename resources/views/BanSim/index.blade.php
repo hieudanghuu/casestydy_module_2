@@ -4,7 +4,7 @@
 <body class="goto-here">
 @include('BanSim.catalog.partials.header')
 <section id="home-section" class="hero">
-    <div class="home-slider owl-carousel mt-2">
+    <div class="home-slider owl-carousel">
         <div class="slider-item js-fullheight">
             <div class="overlay"></div>
             <div class="container-fluid p-0">
@@ -19,7 +19,7 @@
                                 <h1 class="mb-4 mt-3">新しいシム2020</h1>
                                 <p class="mb-4">プレステージ-品質-耐久性</p>
 
-                                <p><a href="#" class="btn-custom">今すぐ購入</a></p>
+                                <p><a href="{{ route('shop') }}" class="btn-custom">今すぐ購入</a></p>
                             </div>
                         </div>
                     </div>
@@ -42,7 +42,7 @@
                                     強い-長いバッテリー寿命</h1>
                                 <p class="mb-4">プレステージ-品質-耐久性</p>
 
-                                <p><a href="#" class="btn-custom">今すぐ購入</a></p>
+                                <p><a href="{{route('shop')}}" class="btn-custom">今すぐ購入</a></p>
                             </div>
                         </div>
                     </div>
@@ -65,7 +65,7 @@
                                     強い-長いバッテリー寿命</h1>
                                 <p class="mb-4">プレステージ-品質-耐久性</p>
 
-                                <p><a href="#" class="btn-custom">今すぐ購入</a></p>
+                                <p><a href="{{route('shop')}}" class="btn-custom">今すぐ購入</a></p>
                             </div>
                         </div>
                     </div>
@@ -225,21 +225,23 @@
                                         <p class="price"><span>{{$sim->sim_price}} 円</span><i
                                                 class="fas fa-yen-sign"></i></p>
                                     </div>
-                                    <p class="bottom-area d-flex px-3">
-                                        <a href="#" class="add-to-cart text-center py-2 mr-1"><span>カートに追加</span></a>
-                                        <a href="{{route('save.cart',$sim->sim_id)}}" class="buy-now text-center py-2">買う<span><i
-                                                    class="ion-ios-cart ml-1"></i></span></a>
+                                    <form action="{{route('save.cart',$sim->sim_id)}}" method="get">
+                                    <p class="bottom-area d-flex px-3 ">
+                                        <a href="{{route('shop')}}" class="add-to-cart text-center py-2 mr-1 col-6"><span>カートに追加</span></a>
+                                        <button  class=" buy-now d-flex text-center py-2 mr-1 col-5 "><a >買う<span><i
+                                                    class="ion-ios-cart ml-1"></i></span></a></button>
                                     </p>
-                                    <span>
+
                                         <div class="col-8 input-group">
                                             <div class="input-group-append">
-                                                    <span class="input-group-text">量</span>
+                                                    <span class="input-group-text btn-danger">量</span>
                                             </div>
                                             <input type="number" name="qty"
-                                                   class="quantity form-control input-number"
-                                                   value="1" min="1" max="100">
+                                                   class=" btn form-control  input-group"
+                                                  value="1" min="1" max="100">
                                         </div>
-                                    </span>
+
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -249,7 +251,63 @@
         </div>
     </div>
 </section>
-@include('BanSim.catalog.partials.footer')
+<footer class="ftco-footer ftco-section mt-5">
+    <div class="container">
+        <div class="row">
+            <div class="mouse">
+                <a href="#" class="mouse-icon">
+                    <div class="mouse-wheel"><span class="ion-ios-arrow-up"></span></div>
+                </a>
+            </div>
+        </div>
+        <div class="row mb-5">
+            <div class="col-md">
+                <div class="ftco-footer-widget mb-4">
+                    <h2 class="ftco-heading-2">C.T.S 株式会社</h2>
+                    <p>プレステージ-品質-耐久性</p>
+                    <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
+                        <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+                        <li class="ftco-animate"><a href="https://www.facebook.com/ctsconnecttosucceed/"><span class="icon-facebook"></span></a></li>
+                        <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md">
+                <div class="ftco-footer-widget mb-4 ml-md-5">
+                    <h2 class="ftco-heading-2">メニュー</h2>
+                    <ul class="list-unstyled">
+                        <li><a href="{{route('shop')}}" class="py-2 d-block">店</a></li>
+                        <li><a href="{{route('cart')}}" class="py-2 d-block">カート</a></li>
+                        <li><a href="{{ route('checkout') }}" class="py-2 d-block">Jお支払い</a></li>
+                        {{--                        {{ route('contact') }}--}}
+                        <li><a href="{{route('shop')}}" class="py-2 d-block">商品を見る</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md">
+                <div class="ftco-footer-widget mb-4">
+                    <h2 class="ftco-heading-2">ご質問はありますか？</h2>
+                    <div class="block-23 mb-3">
+                        <ul>
+                            <li><span class="icon icon-map-marker"></span><span class="text">7-45-3グリーンヒルハヶ崎304 Matsudo, Chiba</span>
+                            </li>
+                            <li><a href="#"><span class="icon icon-phone"></span><span
+                                        class="text">+81 80-9436-7979</span></a></li>
+                            <li><a href="#"><span class="icon icon-envelope"></span><span class="text">danghuuhieu08091989@gmail.com</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+
+            </div>
+        </div>
+    </div>
+</footer>
+
 @include('BanSim.catalog.partials.js')
 </body>
 </html>

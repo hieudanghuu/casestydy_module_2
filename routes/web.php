@@ -61,7 +61,7 @@ Route::group(['prefix' => ''], function () {
 });
 Route::get('/cart/{id}','CartController@save')->name('save.cart')->middleware('auth');
 Route::get('/cart/show','CartController@show');
-Route::post('/cart/update','CartController@update')->name('cart.update');
+Route::get('/cart/update/{id}/{qty}/{rowId}','CartController@update')->name('cart.update');
 Route::get('/destroy/{id}','CartController@destroy')->name('destroy.cart');
 
 Route::get('/search/{id}','SearchController@search_name')->name('search.name');

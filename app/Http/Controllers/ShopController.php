@@ -6,6 +6,7 @@ use App\Category;
 use App\Post;
 use App\Sim;
 use App\User;
+use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
@@ -30,7 +31,9 @@ class ShopController extends Controller
     }
 
     public function cart(){
-        return view('BanSim.catalog.cart');
+        $carts = Cart::content();
+        $cartsId = array_column(array_values($carts->toArray()), 'id');
+        return view('BanSim.catalog.cart',compact('cartsId'));
     }
 
     public function checkout(){

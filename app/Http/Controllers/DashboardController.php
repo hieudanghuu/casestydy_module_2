@@ -30,7 +30,8 @@ class DashboardController extends Controller
             }
         }
         foreach ($orders as $order) {
-            if ($order->created_at->isToday() == true) {
+//            dd(Carbon::now()->month);
+            if ($order->created_at->month == Carbon::now()->month) {
                 $time = $order->count();
             }else {$time = 0;}
         }
