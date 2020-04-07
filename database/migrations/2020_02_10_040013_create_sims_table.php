@@ -17,6 +17,9 @@ class CreateSimsTable extends Migration
             $table->bigIncrements('sim_id');
             $table->string('sim_name');
             $table->double('sim_price');
+            $table->boolean('status')->default(1);
+            $table->longText('description')->nullable();
+            $table->string('locale');
             $table->longText('sim_image')->nullable();
             $table->string('deleted_at')->nullable()->default(null);
             $table->unsignedBigInteger('sim_category_id');

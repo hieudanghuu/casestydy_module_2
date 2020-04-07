@@ -1,5 +1,5 @@
 <head>
-    <title>Minishop - Free Bootstrap 4 Template by Colorlib</title>
+    <title>C.T.S 株式会社</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -20,8 +20,7 @@
     <link rel="stylesheet" href="{{asset('minishop/css/bootstrap-datepicker.css')}}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <link rel="stylesheet" href="{{asset('minishop/css/jquery.timepicker.css')}}">
-
-
+   
     <link rel="stylesheet" href="{{asset('minishop/css/flaticon.css')}}">
     <link rel="stylesheet" href="{{asset('minishop/css/icomoon.css')}}">
     <link rel="stylesheet" href="{{asset('minishop/css/style.css')}}">

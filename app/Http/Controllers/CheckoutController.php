@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Order;
+use App;
 use App\Product_Order;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use App\Category;
@@ -54,7 +55,11 @@ class CheckoutController extends Controller
         }
         Session::forget('cart');
         $sims = Sim::paginate(6);
-        Session::flash('success', "成功した購入");
+        if(App::getlocale() == 'vi'){
+            Session::flash('success', "Xác Nhận Đặt Hàng Thành Công");
+        }else{
+            Session::flash('success', "成功した購入");
+        }
         return view('BanSim.catalog.shop', compact('sims'));
     }
 

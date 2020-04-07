@@ -30,29 +30,11 @@ class DashboardController extends Controller
             }
         }
         foreach ($orders as $order) {
-//            dd(Carbon::now()->month);
             if ($order->created_at->month == Carbon::now()->month) {
                 $time = $order->count();
             }else {$time = 0;}
         }
         return view('index', compact('sims', 'categorys', 'orders', 'users', 'total', 'product_order','time'));
-    }
-
-    public function table()
-    {
-        $sims = Sim::whereNull('deleted_at')->paginate(5);
-        $categories = Category::all();
-
-        return view('dashboard.table1', compact('sims', 'categories'));
-
-    }
-
-    public function table2()
-    {
-        $users = User::where('level', '<', '2')->paginate(5);
-
-        return view('dashboard.table2', compact('users'));
-
     }
 
     public function table3()
@@ -126,6 +108,6 @@ class DashboardController extends Controller
         $oder = Order::find($id);
         $oder->status = 0;
         $oder->save();
-        return redirect()->route('dashboard');
+        return redirect()->back();
     }
 }

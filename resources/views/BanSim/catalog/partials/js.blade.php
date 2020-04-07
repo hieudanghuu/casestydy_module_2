@@ -17,7 +17,7 @@
 <script src="{{asset('minishop/js/main.js')}}"></script>
 <script src="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"></script>
 @yield('scripts')
-{{--<script>--}}
+<script>--}}
 {{--    $(document).ready(function () {--}}
 {{--        $("#btnSearch").click(function () {--}}
 {{--            var keyword = $('#txtSearch').val();--}}
@@ -26,4 +26,4 @@
 {{--            })--}}
 {{--        })--}}
 {{--    })--}}
-{{--</script>--}}
+{{--</script>

@@ -2,18 +2,18 @@
 
 @section('content')
     <div class="container">
-        <div class="row justify-content-center">
+        <div class="hero-wrap hero-bread mt-5" style="background-image: url('{{asset('minishop/images/bg.png')}}'); height: 380px">
+        </div>
+        <div class="row justify-content-center mt-5">
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">{{ __('パスワードを再設定する') }}</div>
-
                     <div class="card-body">
                         @if (session('status'))
                             <div class="alert alert-success" role="alert">
                                 {{ session('status') }}
                             </div>
                         @endif
-
                         <form method="POST" action="{{ route('password.email') }}">
                             @csrf
 

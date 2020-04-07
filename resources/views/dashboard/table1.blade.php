@@ -1,53 +1,8 @@
 @extends('dashboard.partials.main')
 @section('title','table')
 @section('content')
-
     <div class="page-wrapper">
-        <!-- HEADER MOBILE-->
-        <!-- END HEADER MOBILE-->
-    @include('dashboard.partials.header')
-    <!-- MENU SIDEBAR-->
-        <!-- END MENU SIDEBAR-->
-        <!-- PAGE CONTAINER-->
         <div class="page-container">
-            <!-- HEADER DESKTOP-->
-            <header class="header-desktop">
-                <div class="section__content section__content--p30">
-                    <div class="container-fluid">
-                        <div class="header-wrap">
-                            <form class="form-header" action="{{route('search.sim')}}" method="get">
-                                <input class="au-input au-input--xl" type="text" name="key" placeholder="探している"/>
-                                <button class="au-btn--submit" type="submit">
-                                    <i class="zmdi zmdi-search"></i>
-                                </button>
-                            </form>
-                            <div class="header-button">
-                                <div class="noti-wrap">
-
-                                    <a href="{{route('cart')}}" class="nav-link">
-                                            <span class="icon-shopping_cart btn-warning  ">
-                                            </span>[{{Cart::count()}}]
-                                    </a>
-
-                                </div>
-                                <div class="account-wrap">
-                                    <div class="account-item clearfix js-item-menu">
-                                        <div class="image">
-                                            <img src="{{asset('minishop/cooladmin/images/icon/3.jpg')}}"
-                                                 alt="John Doe"/>
-                                        </div>
-                                        <div class="content">
-                                            <a class="js-acc-btn" href="#">{{ Auth::user()->name}}</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </header>
-            <!-- END HEADER DESKTOP-->
-            <!-- MAIN CONTENT-->
             <div class="main-content">
                 <div class="section__content section__">
                     <div class="container-fluid">
@@ -56,10 +11,10 @@
                                 <!-- DATA TABLE -->
                                 <div class="col-12 mt-5">
                                     <div class="row">
-                                        <div class="col-12"><h1>製品リスト</h1></div>
+                                        <div class="col-12"><h1>Bảng Sim</h1></div>
                                         <br>
                                         <a class="btn mb-5 bg-success mt-5"
-                                           href="{{ route('sim.create') }}">新しい追加</a><br>
+                                           href="{{ route('sim.create') }}">Tạo Mới</a><br>
                                         <div class="col-12">
                                             @if (Session::has('success'))
                                                 <p class="text-success">
@@ -71,11 +26,13 @@
                                         <table class="table table-striped">
                                             <thead class="table-danger">
                                             <tr>
-                                                <th scope="col">ID</th>
-                                                <th scope="col">製品名</th>
-                                                <th scope="col">価格</th>
-                                                <th scope="col">写真</th>
-                                                <th scope="col">修正する</th>
+                                                <th scope="col">STT</th>
+                                                <th scope="col">Tên Sim</th>
+                                                <th scope="col">Giá</th>
+                                                <th scope="col">Loại</th>
+                                                <th scope="col">Tiếng Nhật</th>
+                                                <th scope="col">Ảnh</th>
+                                                <th scope="col">Điều Chỉnh</th>
                                                 <th></th>
                                             </tr>
                                             </thead>
@@ -87,7 +44,7 @@
                                             @else
                                                 @foreach($sims as $key => $sim)
                                                     <tr>
-                                                        <th scope="row">{{ $sim->sim_id }}</th>
+                                                        <th scope="row">{{ $sims->firstItem() + $key }}</th>
                                                         <td>{{ $sim->sim_name }}</td>
                                                         <td>{{ $sim->sim_price }}<a><i class="fa fa-yen-sign"></i></a>
                                                         </td>
@@ -97,28 +54,27 @@
                                                                 @endif
                                                             @endforeach
                                                         </td>
+
+                                                        <td> <a href="{{route('show.sim',$sim->sim_id + 1)}}">Xem tiếng Nhật</a></td>
+
                                                         <td>
-                                                            <img src="{{ 'data:image/jpeg;base64,'.$sim->sim_image }}"
+                                                            <img src="{{$sim->sim_image }}"
                                                                  alt="sim_image"
                                                                  style="max-width: 150px">
                                                         </td>
                                                         <td>
-                                                            <div class="row">
-                                                                <div class="col">
-                                                                    <a href="{{ route('sim.edit', $sim->sim_id) }}"
-                                                                       class="btn bg-warning text-dark">修正する</a>
-                                                                </div>
-                                                                <div class="col">
-                                                                    <form
-                                                                        action="{{ route('sim.destroy', $sim->sim_id) }}"
-                                                                        method="post">
-                                                                        @csrf
-                                                                        @method('DELETE')
-                                                                        <input type="submit"
-                                                                               class="btn bg-danger text-dark"
-                                                                               value="削除する">
-                                                                    </form>
-                                                                </div>
+                                                            <div class="btn-group">
+                                                                <a href="{{ route('show.sim', $sim->sim_id) }}" role="button" class="btn btn-info">Xem</a>
+                                                                <a href="{{ route('sim.edit', $sim->sim_id) }}"
+                                                                   role="button" class="btn btn-warning">Sửa</a>
+                                                                <form onclick="return confirm('Are you sure?')"
+                                                                      action="{{ route('sim.destroy', $sim->sim_id) }}"
+                                                                      style="display:inline" method="POST">
+                                                                    @csrf
+                                                                    @method('DELETE')
+                                                                    <button type="submit" class="btn btn-danger">Xóa
+                                                                    </button>
+                                                                </form>
                                                             </div>
                                                         </td>
                                                     </tr>
@@ -134,20 +90,7 @@
                     </div>
                 </div>
             </div>
-            <br><br><br><br><br><br>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="copyright">
-                        <p>プレステージ-品質-耐久性 </p>
-                        <p><a
-                                href="{{route('index')}}">
-                                <img src="{{asset('minishop/cooladmin/images/icon/logo1.jpg')}}" style="height:75px"
-                                     alt="CTS Admin"/>
-                            </a></p>
-                        <p>7-45-3グリーンヒルハヶ崎304 Matsudo, Chiba</p>
-                    </div>
-                </div>
-            </div>
+            @include('dashboard.partials.footer')
         </div>
     </div>
 @endsection

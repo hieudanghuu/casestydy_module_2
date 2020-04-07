@@ -23,7 +23,11 @@
                             <div class="mt-5">
                                 <p> {{$post->content}}</p>
                             </div>
+
                         </div>
+                        <br><br>
+                        <div class="fb-like" data-href="https://cts-sim-jp.herokuapp.com/post/{{$post->id}}" data-width="" data-layout="button" data-action="like" data-size="large" data-share="true"></div>
+                        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v6.0"></script>
                     </div> <!-- .col-md-8 -->
                     <div class="col-lg-4 sidebar ftco-animate">
                         <div class="sidebar-box">
@@ -58,6 +62,7 @@
                                                 </a>
                                             </div>
                                             <div><a href="#"><span class="icon-person"></span>Admin</a></div>
+                                            <div id="fb-root"></div>
                                         </div>
                                     </div>
                                 </div>

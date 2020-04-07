@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Order;
+use App\Post_tran;
 use App\Product_Order;
 use App\User;
 use Illuminate\Http\Request;
@@ -99,7 +100,27 @@ class OrderController extends Controller
         $product_order = Product_Order::findOrFail($order->order_id);
         $order->delete();
         $product_order->delete();
-        Session::flash('success', '削除成功');
+        Session::flash('success', 'xóa thành công');
+        return redirect()->back();
+    }
+
+    public function show_deletad_at()
+    {
+        $orders = Order::onlyTrashed()->paginate(10);
+        return view('dashboard.deleteForm.order', compact('orders'));
+    }
+
+    public function restore($id)
+    {
+        Order::withTrashed()->find($id)->restore();
+        Session::flash('success', 'Khôi phục thành công');
+        return redirect()->route('dashboard.table3');
+    }
+
+    public function forceDelete($id)
+    {
+        Order::withTrashed()->find($id)->forceDelete();
+        Session::flash('success', 'Xóa vĩnh viễn thành công');
         return redirect()->back();
     }
 }

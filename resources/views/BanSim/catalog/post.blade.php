@@ -11,20 +11,22 @@
                         <div class="row">
                             @foreach($posts as $post)
                                 <div class="col-md-12 d-flex ftco-animate">
-                                    <div class="blog-entry align-self-stretch d-md-flex">
-                                        <a href="blog-single.html" class="block-20">
+                                    <div class="blog-entry align-self-stretch d-md-flex col-6">
+                                        <a href="{{route('post.show',$post->id)}}" class="block-20">
                                             <img style='width: 350px ; height: auto'
-                                                 src='/minishop/images/{{$post->image}}'/>
+                                                 src='{{$post->image}}'/>
                                         </a>
-                                        <div class="text d-block pl-md-1">
-                                            <div class="meta mb-3">
-                                                <div><a href="#">{{ $post->created_at }}</a></div>
-                                                <div><a href="#">Admin</a></div>
-                                            </div>
-                                            <h3 class="heading"><a href="#">新製品に関するニュース</a></h3>
-                                            <p>{{ $post->post_title }}</p>
-                                            <p><a href="{{ route('post.show', $post->id) }}" class="btn btn-primary py-2 px-3">詳細</a></p>
+                                    </div>
+                                    <div class="text d-block pl-md-1 col-6">
+                                        <div class="meta mb-3">
+                                            <div><a href="#">{{ $post->created_at }}</a></div>
+                                            <div><a href="#">Admin</a></div>
                                         </div>
+                                        <h3 class="heading"><a
+                                                href="{{route('post.show',$post->id)}}">{{$post->name}}</a></h3>
+                                        <p>{{ $post->title }}</p>
+                                        <p><a href="{{ route('post.show', $post->id) }}"
+                                              class="btn btn-primary py-2 px-3">詳細</a></p>
                                     </div>
                                 </div>
                             @endforeach
@@ -35,7 +37,7 @@
                             <form action="#" class="search-form">
                                 <div class="form-group">
                                     <span class="icon ion-ios-search"></span>
-                                    <input type="text" class="form-control" placeholder="Type a keyword and hit enter">
+                                    <input type="text" class="form-control" >
                                 </div>
                             </form>
                         </div>
@@ -51,13 +53,15 @@
                         <div class="sidebar-box ftco-animate">
                             @foreach($posts as $post)
                                 <div class="sidebar-box ftco-animate">
-                                    <h3 class="heading">最近のニュース</h3>
+                                    <h3 class="heading"><a
+                                            href="{{ route('post.show', $post->id) }}">{{$post->name}}</a></h3>
                                     <div class="block-21 mb-4 d-flex">
-                                        <img style="height:50px" src='/minishop/images/{{$post->image}}'/>
+                                        <a href="{{ route('post.show', $post->id) }}"> <img style="height:50px"
+                                                                                            src='{{$post->image}}'/></a>
                                     </div>
                                     <div class="text d-block ">
                                         <div class="meta mb-3">
-                                            <a href="#">{{ $post->post_title }}</a>
+                                            <a href="#">{{ $post->title }}</a>
 
                                             <div>
                                                 <a href="#"><span class="icon-calendar"></span> {{ $post->created_at }}

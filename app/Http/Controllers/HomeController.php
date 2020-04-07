@@ -39,4 +39,17 @@ class HomeController extends Controller
 
         return redirect()->back();
     }
+
+
+    public function changeLanguage($language)
+    {
+        session(['language' => $language]);
+        return redirect()->back();
+    }
+
+    public function changeLanguageFront($language)
+    {
+        session(['language' => $language]);
+        return redirect()->back();
+    }
 }

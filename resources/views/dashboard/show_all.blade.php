@@ -52,21 +52,22 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <!-- DATA TABLE -->
-                                <div class="btn btn-success "><a class="text-white" href="{{route('dashboard')}}">前のページに戻る </a>
+                                <div class="btn btn-success "><a class="text-white" href="{{route('dashboard')}}">Back </a>
                                 </div>
                                 <div class="table-responsive table-responsive-data2 mt-5">
-                                    <div class="col-12 text-center"><h1>顧客情報</h1></div>
+                                    <div class="col-12 text-center"><h1>
+                                            Thông tin khách hàng</h1></div>
                                     <div class="table-responsive m-b-40">
                                         <table class="table table-data2 mt-5">
                                             <thead class="table-warning">
                                             <tr>
                                                 <th>ID</th>
-                                                <th>アバター</th>
-                                                <th>名前</th>
-                                                <th>メール</th>
-                                                <th>住所</th>
-                                                <th>電話</th>
-                                                <th>ノート</th>
+                                                <th>Avatar</th>
+                                                <th>Tên</th>
+                                                <th>Email</th>
+                                                <th>Địa Chỉ</th>
+                                                <th>Điện Thoại</th>
+                                                <th>Ghi chú</th>
                                             </tr>
                                             </thead>
                                             <tbody>
@@ -92,17 +93,16 @@
                                     </div>
                                 </div>
                                 <div class="table-responsive table-responsive-data2 mt-5">
-                                    <div class="col-12 text-center"><h1>製品情報</h1></div>
+                                    <div class="col-12 text-center"><h1>Thông Tin Sản Phẩm</h1></div>
                                     <div class="table-responsive m-b-40">
                                         <table class="table table-data2 mt-5">
                                             <thead class="table-warning">
                                             <tr>
                                                 <th>ID</th>
-                                                <th>写真</th>
-                                                <th>製品</th>
-                                                <th>価格</th>
-                                                <th>住所</th>
-                                                <th>量</th>
+                                                <th>Ảnh</th>
+                                                <th>Sản Phẩm</th>
+                                                <th>Giá</th>
+                                                <th>Số Lượng</th>
                                             </tr>
                                             </thead>
                                             <tbody>
@@ -118,7 +118,6 @@
                                                 </td>
                                                 <td>{{$product_order->product}}</td>
                                                 <td>{{$product_order->prices}}</td>
-                                                <td>{{$order->address}}</td>
                                                 <td>{{$product_order->quantity}}</td>
                                             </tr>
                                                 @endforeach
@@ -126,13 +125,13 @@
                                         </table>
                                     </div>
 
-                                    <div  class="btn btn-warning">総額 :
+                                    <div  class="btn btn-warning">Tổng Tiền :
                                         <input type="text" style="color-interpolation-filters: auto" value="{{$order->totals . "  円"}}">
                                     </div>
 
                                     <a href="{{route('dashboard.table.confirm',$order->order_id)}} "
                                        class="btn btn-outline-success">
-                                        配達確認</a>
+                                        Xác nhận giao hàng</a>
                                 </div>
                                 <!-- END DATA TABLE -->
                             </div>

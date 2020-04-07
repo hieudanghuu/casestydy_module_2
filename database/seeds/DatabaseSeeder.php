@@ -15,6 +15,8 @@ class DatabaseSeeder extends Seeder
 //        $this->call(OderTableSeed::class);
         $this->call(CategoryTableSeed::class);
         $this->call(SimTableSeed::class);
+        $this->call(PostTableSeed::class);
+        $this->call(Post_tranTableSeed::class);
 //        $this->call(Product_oderTableSeed::class);
     }
 }

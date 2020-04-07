@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use App\Post_tran;
+use App;
 
 class PostController extends Controller
 {
@@ -15,8 +17,12 @@ class PostController extends Controller
      */
     public function index()
     {
-        $post = Post::all();
-        return $post;
+        if (App::getLocale() == "vi") {
+            $posts = Post_tran::where('locale','vi')->paginate(10);
+        }else {
+            $posts = Post_tran::where('locale','jp')->paginate(10);
+        }
+        return view('BanSim.catalog.post',compact('posts'));
     }
 
     /**
@@ -38,11 +44,12 @@ class PostController extends Controller
     public function store(Request $request)
 
     {
-//        $image = $request->image;
+        $posts = new Post();
+        $posts->save();
         $post = Post::create($request->all());
-//        if ($request->hasFile('image')) {
         $image = explode("\\", $request->image);
         $post->image = $image[2];
+        $post->id = $posts->id;
 
         $post->save();
 

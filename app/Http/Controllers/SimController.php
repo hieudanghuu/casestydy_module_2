@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+
+use App;
 use App\Category;
 use App\Sim;
 use Illuminate\Http\Request;
@@ -12,12 +14,13 @@ class SimController extends Controller
 
     protected $sim;
     protected $category;
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public  function  __construct(Sim $sim, Category $category)
+    public function __construct(Sim $sim, Category $category)
     {
         $this->sim = $sim;
         $this->category = $category;
@@ -26,10 +29,9 @@ class SimController extends Controller
 
     public function index()
     {
-        $sims = $this->sim::whereNull('deleted_at')->paginate(5);
         $categories = Category::all();
-        return view('BanSim.crud.list', compact('sims', 'categories'));
-//        return view('BanSim.crud.list', ['sims' => $this->sim::paginate(5), 'categories' => $this->category::all()]);
+        $sims = $this->sim::where('locale', 'vi')->paginate(10);
+        return view('dashboard.table1', compact('sims', 'categories'));
     }
 
     /**
@@ -47,24 +49,24 @@ class SimController extends Controller
      * Store a newly created resource in storage.
      *
      * @param \Illuminate\Http\Request $request
+     * @param $atribute
+     * @param $atribute
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        $sim = new Sim();
-        $sim->sim_name = $request->input('name');
-        $sim->sim_price = $request->input('price');
-        $sim->sim_category_id = \request('sim_category_id');
+        $atribute = $request->all();
+        $image = base64_encode(file_get_contents($request->file("images")));
+        $atribute['sim_image'] = "data:image/jpg;base64," . $image;
+        $atribute['description'] = $request->description;
+        Sim::create($atribute);
 
-        if ($request->hasFile('sim_image')) {
-            $image = base64_encode(file_get_contents($request->file('sim_image')));
-            $sim->sim_image = $image;
-        }
-        $sim->save();
+        $atribute['locale'] = 'jp';
+        $atribute['description'] = $request->description1;
+        Sim::create($atribute);
+        Session::flash('success', ' Tạo mới thành công');
 
-        Session::flash('success', '新しい成功を生み出す');
-
-        return redirect()->route('sim.index');
+        return redirect()->route('dashboard.table');
     }
 
     /**
@@ -73,8 +75,10 @@ class SimController extends Controller
      * @param \App\Sim $sim
      * @return \Illuminate\Http\Response
      */
-    public function show(Sim $sim)
+    public function show($id)
     {
+        $sim = Sim::find($id);
+
 
     }
 
@@ -87,7 +91,6 @@ class SimController extends Controller
     public function edit(Sim $sim)
     {
         $categories = Category::all();
-
         return view('BanSim.crud.edit', compact('sim', 'categories'));
     }
 
@@ -97,21 +100,22 @@ class SimController extends Controller
      * @param \Illuminate\Http\Request $request
      * @param \App\Sim $sim
      * @param Category $category
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\Response,.l
      */
-    public function update(Request $request, Sim $sim)
+    public function update(Request $request, $id)
     {
-
-        $sim->sim_name = $request->input('name');
-        $sim->sim_price = $request->input('price');
-        $sim->sim_category_id = $request->input('sim_category_id');
-        if ($request->hasFile('image')) {
-            $image = base64_encode(file_get_contents($request->file('image')));
-            $sim->sim_image = $image;
+        $atribute = $request->all();
+        if ($request->hasFile('images')) {
+            $image = base64_encode(file_get_contents($request->file("images")));
+            $atribute['sim_image'] = "data:image/jpg;base64," . $image;
         }
-        $sim->save();
-        Session::flash('success', '新しい成功を生み出す');
-        return redirect()->route('sim.index');
+        $sim = Sim::find($id);
+        $sim1 = Sim::find($id + 1);
+        $sim1->sim_image = "data:image/jpg;base64," . $image;
+        $sim->update($atribute);
+        $sim1->save();
+        Session::flash('success', 'Sửa thành công');
+        return redirect()->route('dashboard.table');
     }
 
     /**
@@ -123,20 +127,48 @@ class SimController extends Controller
     public function destroy($id)
     {
         $sim = Sim::findOrFail($id);
-        $sim->update(['deleted_at' => date("Y-m-d H:i:s")]);
-        Session::flash('success', '削除成功');
+        $simjp = Sim::findOrFail($id + 1);
+        $sim->delete();
+        $simjp->delete();
+        Session::flash('success', 'Xóa thành công');
         return redirect()->back();
     }
 
     public function validateTask()
     {
         return request()->validate([
-            'sim_name' => ['required','string','max:255'],
-            'sim_price' => ['required','number'],
-            'sim_category_id' => ['required','number','max:10'],
-            'sim_image' => ['required','string'],
+            'sim_name' => ['required', 'string', 'max:255'],
+            'sim_price' => ['required', 'number'],
+            'sim_category_id' => ['required', 'number', 'max:10'],
+            'sim_image' => ['required', 'string'],
         ]);
     }
 
+    public function show_deletad_at()
+    {
+        $categories = Category::all();
+        $sims = Sim::onlyTrashed()->where('locale', 'vi')->paginate(10);
+        return view('dashboard.deleteForm.sims', compact('sims', 'categories'));
+    }
+
+    public function restore($id)
+    {
+        $sim = Sim::withTrashed()->find($id);
+        $simjp = Sim::withTrashed()->find($id + 1);
+        $sim->restore();
+        $simjp->restore();
+        Session::flash('success', 'Khôi phục thành công');
+        return redirect()->route('dashboard.table');
+    }
+
+    public function forceDelete($id)
+    {
+        $sim = Sim::withTrashed()->find($id);
+        $simjp = Sim::withTrashed()->find($id + 1);
+        $sim->forceDelete();
+        $simjp->forceDelete();
+        Session::flash('success', 'Xóa vĩnh viễn thành công');
+        return redirect()->back();
+    }
 
 }

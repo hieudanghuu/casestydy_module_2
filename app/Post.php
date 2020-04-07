@@ -6,9 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
-//    use SoftDeletes;
+    use SoftDeletes;
 
     protected $table = 'posts';
     protected $dates = ['deleted_at'];
-    protected  $fillable = ['post_id','post_title','content','image','post_category_id'];
+    protected  $fillable = ['id'];
+
+    public function post_tran ()
+    {
+        return $this->hasMany('App\Post_tran');
+    }
 }
