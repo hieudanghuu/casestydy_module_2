@@ -91,7 +91,7 @@ class SimController extends Controller
     public function edit(Sim $sim)
     {
         $categories = Category::all();
-        return view('BanSim.crud.edit', compact('sim', 'categories'));
+        return view('dashboard.editForm.simEdit', compact('sim', 'categories'));
     }
 
     /**
