@@ -43,15 +43,8 @@
                         <i class="fas fa-map-marker-alt"></i>Bảng Tin tức</a>
                 </li>
                 <li class="has-sub">
-                    <a class="js-arrow" href="#">
-                        <i class="fas fa-copy"></i>
-                        ページ</a>
-                    <ul class="list-unstyled navbar__sub-list js-sub-list">
-                        <li>
-                            <a href="{{route('login')}}">
-                                Đăng xuất</a>
-                        </li>
-                    </ul>
+                    <a href="{{route('login')}}">
+                         Đăng xuất</a>
                 </li>
             </ul>
         </div>
@@ -142,11 +135,43 @@
                     <div class="account-wrap">
                         <div class="account-item clearfix js-item-menu">
                             <div class="image">
-                                <img src="{{asset('minishop/cooladmin/images/icon/3.jpg')}}"
-                                     alt="John Doe"/>
+                                <img src="{{asset('minishop/cooladmin/images/icon/3.jpg')}}" alt="John Doe" />
                             </div>
                             <div class="content">
                                 <a class="js-acc-btn text-light" href="#">{{ Auth::user()->name}}</a>
+                            </div>
+                            <div class="account-dropdown js-dropdown">
+                                <div class="info clearfix">
+                                    <div class="image">
+                                        <a href="#">
+                                            <img src="{{asset('minishop/cooladmin/images/icon/3.jpg')}}" alt="John Doe" />
+                                        </a>
+                                    </div>
+                                    <div class="content">
+                                        <h5 class="name ">
+                                            <a href="#">{{ Auth::user()->name}}</a>
+                                        </h5>
+                                        <span class="email">{{ Auth::user()->email}}</span>
+                                    </div>
+                                </div>
+                                {{-- <div class="account-dropdown__body">
+                                    <div class="account-dropdown__item">
+                                        <a href="#">
+                                            <i class="zmdi zmdi-account"></i>Account</a>
+                                    </div>
+                                    <div class="account-dropdown__item">
+                                        <a href="#">
+                                            <i class="zmdi zmdi-settings"></i>Setting</a>
+                                    </div>
+                                    <div class="account-dropdown__item">
+                                        <a href="#">
+                                            <i class="zmdi zmdi-money-box"></i>Billing</a>
+                                    </div>
+                                </div> --}}
+                                <div class="account-dropdown__footer">
+                                    <a href="{{route('login')}}">
+                                        <i class="zmdi zmdi-power"></i>Logout</a>
+                                </div>
                             </div>
                         </div>
                     </div>

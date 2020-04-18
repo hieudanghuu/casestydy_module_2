@@ -14,7 +14,7 @@
     <div class="container">
         <div class="col-12 col-md-12 mt-5">
             <div class="row">
-                <div class="col-12"><h1>Chỉnh sửa sản phẩm</h1></div>
+                <div class="col-12"><h1>Chỉnh sửa đơn hàng</h1></div>
                 <div class="col-12">
                     <form action="{{ route('dashboard.table3Update') }}" method="post" enctype="multipart/form-data">
                         @csrf
@@ -92,7 +92,7 @@
                                             @foreach($product_order1 as $product_order)
                                                 <tr class="text-center">
                                                     <td>
-                                                        <img src="{{ 'data:image/jpeg;base64,'.$product_order->image }}"
+                                                        <img src="{{ $product_order->image }}"
                                                              alt="sim_image"
                                                              style="max-width: 150px">
                                                         <input type="hidden" value="{{$product_order->image}}"

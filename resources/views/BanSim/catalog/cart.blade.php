@@ -24,7 +24,7 @@
                     </thead>
                     <tbody>
                     <input id="productsId" type='hidden' value={{json_encode($cartsId)}}>
-                    @foreach(Cart::content() as $key => $cart)
+                        @foreach(Cart::content() as $key => $cart)
                         <tr class="text-center">
                             <td class="product-remove"><a href="{{ route('destroy.cart', $cart->rowId) }}"><span
                                         class="ion-ios-close"></span></a>

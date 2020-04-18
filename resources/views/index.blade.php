@@ -103,12 +103,10 @@
                                                     <tr>
                                                         <th>Thời Gian</th>
                                                         <th>ID Hóa Đơn</th>
-                                                        <th>Tên Sản Phẩm</th>
+                                                        <th>Tên người Order</th>
                                                         <th>Tổng Thanh Toán</th>
                                                         <th></th>
-                                                        <th></th>
-                                                        <th></th>
-                                                    </tr>
+                                                  </tr>
                                                     </thead>
                                                     <tbody>
                                                     @foreach($orders as $order)
@@ -120,9 +118,7 @@
                                                             <td>{{$order->totals}} 円</td>
                                                             <td><a class="btn btn-danger text-white"
                                                                    href="{{route('dashboard.destroy.order',$order->order_id)}}">Xóa</a>
-                                                            </td>
-                                                            <td>
-                                                                <a class="btn btn-info text-white"
+                                                                   <a class="btn btn-info text-white"
                                                                    href="{{route('dashboard.order.all_show',$order->order_id)}}">Chi Tiết</a>
                                                             </td>
                                                         </tr>

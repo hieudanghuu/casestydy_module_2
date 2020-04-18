@@ -22,7 +22,7 @@
                                                     <input type="text" class="form-control" name="name"
                                                            value="{{ $user->name }}" required>
                                                     <p class="help is-danger" style="color:#FF0000"
-                                                       ;>{{ $errors->first('name') }}</p>
+                                                       >{{ $errors->first('name') }}</p>
 
                                                 </div>
                                                 <div class="form-group  col-12">

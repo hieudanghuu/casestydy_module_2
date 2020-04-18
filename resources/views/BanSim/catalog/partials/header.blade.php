@@ -113,7 +113,7 @@
                     @endif
                 @endguest
                 <li class="nav-item cta cta-colored"><a href="{{route('cart')}}" class="nav-link"><span
-                            class="icon-shopping-cart btn-warning "></span>[{{Cart::count()}}]</a></li>
+                            class="icon-shopping-cart  btn-warning "></span>[{{Cart::count()}}]</a></li>
                <form action="{{route('search.sim')}}" class="  mt-2" method="get">
 
                     <div class="sb hidden-sm-down flex-fill mr-5 mt-2">

@@ -8,8 +8,6 @@ use Illuminate\Http\Request;
 use App\Category;
 use App\Sim;
 use Gloudemans\Shoppingcart\Facades\Cart;
-
-
 use Illuminate\Support\Facades\Session;
 use function Sodium\compare;
 

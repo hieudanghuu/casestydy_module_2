@@ -19,7 +19,7 @@ class ProductController extends Controller
         $sims = Sim::all();
         return  $sims;
     }
-
+    
     /**
      * Show the form for creating a new resource.
      *

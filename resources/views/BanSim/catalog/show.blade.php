@@ -11,17 +11,21 @@
                 <div class="col-md-8 col-lg-10 order-md-last">
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-12 col-sm-3">
+                            <div class="col-sm-7">
                                 <h3 class="d-inline-block d-sm-none"></h3>
-                                <div class="col-12">
-                                    <img src="{{$sim->sim_image}}" class="product-image" alt="Product Image" style="width: 400px">
-                                </div>
-                            </div>
-                            <div class="col-12 col-sm-9">
-                                <h3 class="my-3">{{$sim->sim_name}}</h3>
-                                <div>
 
-                                    <p><strong>Phân Loại : </strong> {{$category->category_name}}</p>
+                                    <img src="{{$sim->sim_image}}" class="product-image" alt="Product Image" style="width: 400px">
+
+                            </div>
+                            <div class="col-sm-5">
+                            <span style="font-size: 32px"><strong> {{trans('shop.name')}} :</strong>
+                                    {{$sim->sim_name}}
+                                </span>
+                                <div>
+                                    <p style="font-size: 32px"><strong>{{trans('shop.category')}} : </strong> {{$category->category_name}}</p>
+                                </div>
+                                <div>
+                                    <p style="font-size: 32px"><strong>{{trans('shop.gia')}} : </strong> {{$sim->sim_price}} 円</p>
                                 </div>
                             </div>
                         </div>
@@ -29,10 +33,10 @@
                             <nav class="w-100">
                                 <div class="nav nav-tabs" id="product-tab" role="tablist">
                                     <a class="nav-item nav-link active" id="product-desc-tab" data-toggle="tab"
-                                       href="#product-desc" role="tab" aria-controls="product-desc" aria-selected="true">Mô Tả</a>
+                                       href="#product-desc" role="tab" aria-controls="product-desc" aria-selected="true">{{trans('shop.discription')}}</a>
                                     <a class="nav-item nav-link" id="product-comments-tab" data-toggle="tab"
                                        href="#product-comments" role="tab" aria-controls="product-comments"
-                                       aria-selected="false">Trạng Thái</a>
+                                       aria-selected="false">{{trans('shop.status')}}</a>
                                     <!-- <a class="nav-item nav-link" id="product-rating-tab" data-toggle="tab" href="#product-rating" role="tab" aria-controls="product-rating" aria-selected="false">Rating</a> -->
                                 </div>
                             </nav>
@@ -47,9 +51,9 @@
                                 <div class="tab-pane fade" id="product-comments" role="tabpanel"
                                      aria-labelledby="product-comments-tab">
                                     @if($sim->status == 1)
-                                        <option value="1">Online</option>
+                                        <option value="1">{{trans('shop.1')}}</option>
                                     @else
-                                        <option value="0">Not online</option>
+                                        <option value="0">{{trans('shop.0')}}</option>
                                     @endif
                                 </div>
                             </div>
@@ -59,7 +63,7 @@
                 <div class="col-md-4 col-lg-2">
                     <div class="sidebar">
                         <div class="sidebar-box-2">
-                            <h2 class="heading">カテゴリー</h2>
+                            <h2 class="heading">{{trans('shop.catalog')}}</h2>
                             <div class="fancy-collapse-panel">
                                 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                                     <div class="panel panel-default">
@@ -97,13 +101,13 @@
 
                         </script>
                         <div class="sidebar-box-2">
-                            <h2 class="heading">価格帯</h2>
+                            <h2 class="heading">{{trans('shop.price')}}</h2>
                             <form method="post" action="{{route('search.price')}}" class="colorlib-form-2">
                                 @csrf
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <label for="guests">からの価格:</label>
+                                            <label for="guests">{{trans('shop.tu')}}:</label>
                                             <i class="icon icon-arrow-down3"></i>
                                             <input type="number" class="form-control" name="value1" required>
                                             <div class="col-12">
@@ -118,13 +122,13 @@
                                     </div>
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <label for="guests">マデ:</label>
+                                            <label for="guests">{{trans('shop.den')}}:</label>
                                             <i class="icon icon-arrow-down3"></i>
                                             <input type="number" class="form-control" name="value2" required>
                                         </div>
                                     </div>
                                 </div>
-                                <button type="submit" class="btn bg-warning text-dark">見つける</button>
+                                <button type="submit" class="btn bg-warning text-dark">{{trans('shop.search')}}</button>
                             </form>
                         </div>
                     </div>

@@ -106,13 +106,13 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            @foreach($product_order1 as $product_order)
+                                            @foreach($product_orders as $product_order)
                                             <tr class="tr-shadow">
                                                 <td>
                                                     {{$product_order->id}}
                                                 </td>
                                                 <td>
-                                                    <img src="{{ 'data:image/jpeg;base64,'.$product_order->image }}"
+                                                    <img src="{{$product_order->image }}"
                                                          alt="image"
                                                          style="max-width: 150px">
                                                 </td>

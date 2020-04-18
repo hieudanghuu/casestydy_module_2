@@ -24,13 +24,17 @@
                     <div class="form-group">
                         <label for="name">Tên Sim</label>
                         <input type="text" class="form-control" name="sim_name" placeholder="tên sim" required>
-                        <p class="help is-danger" style="color:#FF0000" ;>{{ $errors->first('name') }}</p>
+                        @error('sim_name')
+                        <p class="text-danger">{{ $errors->first('sim_name') }}</p>
+                        @enderror
 
                     </div>
                     <div class="form-group">
                         <label for="price">Giá</label>
                         <input type="text" class="form-control" name="sim_price" placeholder="nhập giá" required>
-                        <p class="help is-danger " style="color:#FF0000" ;>{{ $errors->first('price') }}</p>
+                        @error('sim_price')
+                        <p class="text-danger">{{ $errors->first('sim_price') }}</p>
+                        @enderror
                     </div>
                     <div class="form-group ">
                         <label for="price">Tình Trạng :</label>
@@ -70,11 +74,17 @@
                             <label for="description">Nội dung tiếng Việt :</label>
                             <textarea class="textarea" name="description" placeholder="Nhập nội dung"
                                       style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+                                      @error('description')
+                                      <p class="text-danger">{{ $errors->first('description') }}</p>
+                                      @enderror
                         </div>
                         <div class="form-group col-6">
                             <label for="description">Nội dung tiếng Nhật :</label>
                             <textarea class="textarea" name="description1" placeholder="Nhập nội dung"
                                       style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+                                      @error('description1')
+                                      <p class="text-danger">{{ $errors->first('description1') }}</p>
+                                      @enderror
                         </div>
                         <button type="submit" class="mb-5 btn btn-primary">Tạo mới</button>
                     </div>
