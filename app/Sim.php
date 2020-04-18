@@ -16,7 +16,11 @@ class Sim extends Model
 
     public function product_order()
     {
-        return $this->belongsTo('App\Product_Order');
+        return $this->hasMany('App\Product_Order');
+    }
+    public function category()
+    {
+        return $this->belongsTo('App\Category','sim_category_id');
     }
 
 }

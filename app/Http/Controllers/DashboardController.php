@@ -105,9 +105,9 @@ class DashboardController extends Controller
 
     public function confirm($id)
     {
-        $oder = Order::find($id);
-        $oder->status = 0;
-        $oder->save();
-        return redirect()->back();
+        $order = Order::find($id);
+        $order->status = 0;
+        $order->save();
+        return redirect()->route('dashboard.table3');
     }
 }

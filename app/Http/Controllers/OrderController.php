@@ -51,18 +51,9 @@ class OrderController extends Controller
     public function all_show(Order $order, $id)
     {
         $order = Order::findOrFail($id);
-        $product_orders = Product_Order::all();
-
-        $users = User::all();
-        foreach ($users as $user){
-            if ($user->id == $order->user_id){}
-        }
-        foreach ($product_orders as $product_order){
-            if($product_order->order_id == $order->order_id){
-                $product_order1[] = $product_order;
-            }
-        }
-        return view('dashboard.show_all', compact('order', 'product_order1', 'user'));
+        $product_orders = $order->product_order;
+        $user = $order->user;
+        return view('dashboard.show_all', compact('order', 'product_orders', 'user'));
     }
 
     /**
@@ -97,7 +88,7 @@ class OrderController extends Controller
     public function destroy($id)
     {
         $order = Order::findOrFail($id);
-        $product_order = Product_Order::findOrFail($order->order_id);
+        $product_order = $order->product_order;
         $order->delete();
         $product_order->delete();
         Session::flash('success', 'xóa thành công');

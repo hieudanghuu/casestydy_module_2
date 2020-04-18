@@ -6,14 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product_Order extends Model
 {
+
+
     protected $table = 'product_order';
 
-    public function Order()
+    public function order()
     {
-        return $this->hasMany('App\Order');
+        return $this->belongsTo('App\Order');
     }
-    public function Sim()
+    public function sim()
     {
-        return $this->hasMany('App\Sim');
+        return $this->belongsTo('App\Sim');
     }
 }

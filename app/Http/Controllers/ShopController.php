@@ -27,20 +27,22 @@ class ShopController extends Controller
 
     public function show_sim($id)
     {
-        $sim = Sim::find($id);
-        $category = Category::find($sim->sim_category_id);
-        if (Auth::user()->name == 'hieu') {
-            return view('dashboard.view.simView', compact('sim', 'category'));
+
+        if (App::getLocale() == "vi") {
+            $sim = Sim::find($id);
         } else {
-            return view('BanSim.catalog.show', compact('sim', 'category'));
+            $sim = Sim::find($id+1);
         }
+        $category = $sim->category;
+        return view('BanSim.catalog.show', compact('sim', 'category'));
+
     }
 
     public function index()
     {
         $sims = Sim::whereNull('deleted_at')->paginate(6);
         $user = User::all();
-        $posts = Post::paginate(3);
+        $posts = Post::paginate(4);
         $category = Category::all();
 
         return view('BanSim.index', compact('sims', 'user', 'posts', 'category'));

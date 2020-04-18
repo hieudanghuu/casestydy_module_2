@@ -3,7 +3,7 @@
 [
     'cty' => 'công ty C.T.S ',
     'khauhieu' =>'Uy tín - Chất lượng - Bền vững',
-    'news' => 'tin tức',
+    'news' => 'Dnh mục',
     'shop' =>'sản phẩm',
     'cart' => 'giỏ hàng',
     'contact' => 'giới thiệu',

@@ -55,6 +55,7 @@ class SimController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validateTask();
         $atribute = $request->all();
         $image = base64_encode(file_get_contents($request->file("images")));
         $atribute['sim_image'] = "data:image/jpg;base64," . $image;

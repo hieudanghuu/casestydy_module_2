@@ -11,11 +11,9 @@
             <br><br>
         </div>
 
-
-
             <section class="ftco-section bg-light ">
                 @if(count($search_sim) > 0)
-                <h1 class="text-center"><span class="text-danger">{{count($search_sim)}}</span> シムが見つかりました </h1><br><br>
+                <h1 class="text-center"><span class="text-danger">{{count($search_sim)}}</span> {{trans('shop.mess')}} </h1><br><br>
                 @endif
                 <div class="container mt-5">
                     <div class="row">
@@ -33,26 +31,26 @@
                                             <div class="text py-3 pb-4 px-3">
                                                 <div class="d-flex">
                                                     <div class="cat">
-                                                        <span>新しいシム2020</span>
+                                                    <span>{{trans('shop.title')}}</span>
                                                     </div>
                                                 </div>
-                                                <h3><a href="#">プレステージ-品質-耐久性</a></h3>
+                                            <h3><a href="#">{{trans('home.khauhieu2')}}</a></h3>
                                                 <div class="pricing">
                                                     <p class="price"><span>{{$sim->sim_price}} 円</span><i
                                                             class="fas fa-yen-sign"></i></p>
                                                 </div>
                                                 <p class="bottom-area d-flex px-3">
                                                     <a href="#"
-                                                       class="add-to-cart text-center py-2 mr-1"><span>カートに追加</span></a>
+                                                       class="add-to-cart text-center py-2 mr-1"><span>{{trans('shop.view')}}</span></a>
                                                     <a href="{{route('save.cart',$sim->sim_id)}}"
-                                                       class="buy-now text-center py-2">買う<span><i
+                                                       class="buy-now text-center py-2">{{trans('shop.cart')}}<span><i
                                                                 class="ion-ios-cart ml-1"></i></span></a>
                                                 </p>
                                                 <span>
 
                                             <div class="col-8 input-group">
                                                 <div class="input-group-append">
-                                                    <span class="input-group-text">量</span>
+                                                    <span class="input-group-text">{{trans('shop.sl')}}</span>
                                                 </div>
                                                 <input type="number" name="qty"
                                                        class="quantity form-control input-number"
@@ -66,12 +64,12 @@
                                     @if(is_numeric($key))
                                         <h1>
                                             <td>{{$key}} </td>
-                                            円 からは見つかりませんでした
+                                            {{trans('shop.error')}}
                                         </h1>
                                     @else
                                         <h1>
                                             <td>{{$key}}</td>
-                                            見つかりません
+                                            {{trans('shop.error1')}}
                                         </h1>
                                     @endif
                                 @endforelse

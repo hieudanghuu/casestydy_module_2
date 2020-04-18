@@ -19,7 +19,10 @@ class User extends Authenticatable
     protected $fillable = [
         'name', 'email', 'password','phone','address','avatar'
     ];
-
+    public function order()
+    {
+        return $this->hasMany('App\Order','user_id');
+    }
     /**
      * The attributes that should be hidden for arrays.
      *

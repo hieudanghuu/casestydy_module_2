@@ -64,6 +64,9 @@
                                         <label for="country">{{trans('checkout.address')}}</label>
                                         <input type="text" class="form-control" name="address"
                                                value="{{Auth::user()->address}}">
+                                            @error('address')
+                                            <p class="text-danger">{{ $errors->first('address') }}</p>
+                                            @enderror
                                     </div>
                                 </div>
 
@@ -72,6 +75,9 @@
                                         <label for="streetaddress">{{trans('checkout.phone')}}</label>
                                         <input type="text" class="form-control" name="phone"
                                                value="{{Auth::user()->phone}}">
+                                               @error('phone')
+                                               <p class="text-danger">{{ $errors->first('phone') }}</p>
+                                               @enderror
                                     </div>
                                 </div>
                                 <div class="col-md-12">
@@ -107,7 +113,7 @@
                                                             <td></td>
                                                             <td class="image-prod">
                                                                 @foreach($cart->options as $image)
-                                                                    <img src="{{ 'data:image/jpeg;base64,'.$image }}"
+                                                                    <img src="{{ $image }}"
                                                                          alt="sim_image"
                                                                          style="max-width: 150px">
                                                                     <input type="hidden" value="{{$image}}"

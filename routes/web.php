@@ -21,16 +21,15 @@ Route::get('dashboard/post',function (){
 
 Route::group(['prefix' => ''], function () {
     Route::get('/',function(){
-        // dd(App::getLocale());
         if (App::getLocale() == "vi") {
             $sims = \App\Sim::where('locale','vi')->whereNull('deleted_at')->paginate(6);
             $user = \App\User::all();
-            $posts = \App\Post_tran::where('locale','vi')->paginate(3);
+            $posts = \App\Post_tran::where('locale','vi')->paginate(2);
             $category = \App\Category::all();
         } else{
             $sims = \App\Sim::where('locale','jp')->whereNull('deleted_at')->paginate(6);
             $user = \App\User::all();
-            $posts = \App\Post_tran::where('locale','jp')->paginate(3);
+            $posts = \App\Post_tran::where('locale','jp')->paginate(2);
             $category = \App\Category::all();
         }
         return view('BanSim.index',compact('sims','user','posts','category'));
@@ -41,9 +40,9 @@ Route::group(['prefix' => ''], function () {
     Route::get('/cart','ShopController@cart')->name('cart')->middleware('auth','locale');
     Route::get('/product','ShopController@product')->name('product');
     Route::get('/checkout','CheckoutController@show')->name('checkout')->middleware('auth','locale');
-    Route::post('/shop/','CheckoutController@checkout_save')->name('checkout.save');
-    Route::post('/contact','ShopController@contact')->name('contact');
-    Route::get('/show/{id}', 'ShopController@show_sim')->name('show.sim')->middleware('auth');;
+    Route::post('/shop','CheckoutController@checkout_save')->name('checkout.save')->middleware('auth','locale');
+    Route::post('/contact','ShopController@contact')->name('contact')->middleware('locale');;
+    Route::get('/show/{id}', 'ShopController@show_sim')->name('show.sim')->middleware('locale');
 
 
 
@@ -65,12 +64,12 @@ Route::get('/cart/update/{id}/{qty}/{rowId}','CartController@update')->name('car
 Route::get('/destroy/{id}','CartController@destroy')->name('destroy.cart');
 //-----------------------------------------------------------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------------------------------------------------------
-Route::get('/search/{id}','SearchController@search_name')->name('search.name');
-Route::post('/search/sim-price','SearchController@search_price')->name('search.price');
+Route::get('/search/{id}','SearchController@search_name')->name('search.name')->middleware('locale');
+Route::post('/search/sim-price','SearchController@search_price')->name('search.price')->middleware('locale');
 //-----------------------------------------------------------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------------------------------------------------------
 Route::get('/dashboard','DashboardController@index')->name('dashboard')->middleware('admin');
-Route::get('/dashboard/sim','SimController@index')->name('dashboard.table')->middleware('admin');
+Route::get('/dashboard/sim/','SimController@index')->name('dashboard.table')->middleware('admin');
 Route::get('/dashboard/sim/delete','SimController@show_deletad_at')->name('dashboard.sim.delete')->middleware('admin');
 Route::get('/dashboard/sim/restore/{id}','SimController@restore')->name('dashboard.sim.restore')->middleware('admin');
 Route::get('/dashboard/sim/forceDelete/{id}','SimController@forceDelete')->name('dashboard.sim.forceDelete')->middleware('admin');

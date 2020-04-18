@@ -26,6 +26,7 @@ class CheckoutController extends Controller
 
     public function checkout_save(Request $request)
     {
+        $this->validateTask();
         $cart = Session::get('cart')["default"]->toArray();
         $order = new Order();
 
@@ -62,5 +63,15 @@ class CheckoutController extends Controller
         }
         return view('BanSim.catalog.shop', compact('sims'));
     }
+
+    public function validateTask()
+    {
+        return request()->validate([
+            'address' => ['required'],
+            'phone' => ['required'],
+            ]);
+
+    }
+
 
 }

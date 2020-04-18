@@ -10,4 +10,8 @@ class Category extends Model
     protected $fillable = ['category_id','category_name'];
     protected $primaryKey = 'category_id';
 
+    public function sim()
+    {
+        return $this->hasMany('App\Sim');
+    }
 }
