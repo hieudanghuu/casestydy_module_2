@@ -152,7 +152,7 @@ product.delete = function (id) {
     });
 };
 
-product.init =function () {
+product.init = function () {
     product.drawTable();
 };
 

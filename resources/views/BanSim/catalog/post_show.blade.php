@@ -13,7 +13,7 @@
                                 <a href="#"><span class="icon-person"></span>Admin</a></div>
                             <div class="col-md-12 d-flex ftco-animate mt-2">
                                 <div class="blog-entry align-self-stretch d-md-flex">
-                                    <img style="height:300px" src='/minishop/images/{{$post->image}}'/>
+                                    <img style="height:300px" src='{{$post->image}}'/>
                                     <div class="text d-block pl-md-1">
                                     </div>
                                 </div>
@@ -26,7 +26,7 @@
 
                         </div>
                         <br><br>
-                        <div class="fb-like" data-href="https://cts-sim-jp.herokuapp.com/post/{{$post->id}}" data-width="" data-layout="button" data-action="like" data-size="large" data-share="true"></div>
+                        <div class="fb-like" data-href="https://cts-japan.herokuapp.com/post/{{$post->id}}" data-width="" data-layout="button" data-action="like" data-size="large" data-share="true"></div>
                         <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v6.0"></script>
                     </div> <!-- .col-md-8 -->
                     <div class="col-lg-4 sidebar ftco-animate">
@@ -52,7 +52,8 @@
                                 <div class="sidebar-box ftco-animate">
                                     <h3 class="heading">最近のニュース</h3>
                                     <div class="block-21 mb-4 d-flex">
-                                        <img style="height:50px" src='/minishop/images/{{$item->image}}'/>
+                                        <img style="height:50px" src='{{$item->image}}'/>
+                                        
                                     </div>
                                     <div class="text d-block ">
                                         <div class="meta mb-3">
